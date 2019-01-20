@@ -5,7 +5,6 @@
 	};
 	objectVersion = 46;
 	objects = {
-
 /* Begin PBXBuildFile section */
 		00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302AC1ABCB8CE00DB3ED1 /* libRCTActionSheet.a */; };
 		00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302BA1ABCB90400DB3ED1 /* libRCTGeolocation.a */; };
@@ -38,8 +37,8 @@
 		2DF0FFEE2056DD460020B375 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
-		B38075247BD143B888ADE81B /* libRNEstimoteProximity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0C43A4A5B9F474BA75D7EA4 /* libRNEstimoteProximity.a */; };
 		E8A88C4EC662FE8B29DBF8C2 /* libPods-example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24DB3B85087FBAA542FF5001 /* libPods-example.a */; };
+		141A2002FCB44395A8F235D9 /* libRNEstimoteProximity.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2E4306C8EF458196DC0DC0 /* libRNEstimoteProximity.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -316,13 +315,6 @@
 			remoteGlobalIDString = 358F4ED71D1E81A9004DF814;
 			remoteInfo = RCTBlob;
 		};
-		AE3371AB2189C47F00C5F5B8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 511C5A3381A648F3BDF7C50C /* RNEstimoteProximity.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNEstimoteProximity;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -349,14 +341,14 @@
 		2D02E47B1E0B4A5D006451C7 /* example-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "example-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* example-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "example-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		511C5A3381A648F3BDF7C50C /* RNEstimoteProximity.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNEstimoteProximity.xcodeproj; path = "../node_modules/@estimote/react-native-proximity/ios/RNEstimoteProximity.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		8B3CDB70793921B1C7F116D4 /* Pods-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example.release.xcconfig"; path = "Pods/Target Support Files/Pods-example/Pods-example.release.xcconfig"; sourceTree = "<group>"; };
-		A0C43A4A5B9F474BA75D7EA4 /* libRNEstimoteProximity.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNEstimoteProximity.a; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
 		E556559B78B19248E79BCAB3 /* Pods-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-example/Pods-example.debug.xcconfig"; sourceTree = "<group>"; };
+		0BCD47F1A52740168AD90187 /* RNEstimoteProximity.xcodeproj */ = {isa = PBXFileReference; name = "RNEstimoteProximity.xcodeproj"; path = "../node_modules/@estimote/react-native-proximity/ios/RNEstimoteProximity.xcodeproj"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.pb-project; explicitFileType = undefined; includeInIndex = 0; };
+		ED2E4306C8EF458196DC0DC0 /* libRNEstimoteProximity.a */ = {isa = PBXFileReference; name = "libRNEstimoteProximity.a"; path = "libRNEstimoteProximity.a"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = archive.ar; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -384,8 +376,8 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				B38075247BD143B888ADE81B /* libRNEstimoteProximity.a in Frameworks */,
 				E8A88C4EC662FE8B29DBF8C2 /* libPods-example.a in Frameworks */,
+				141A2002FCB44395A8F235D9 /* libRNEstimoteProximity.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,7 +565,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
-				511C5A3381A648F3BDF7C50C /* RNEstimoteProximity.xcodeproj */,
+				0BCD47F1A52740168AD90187 /* RNEstimoteProximity.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -629,14 +621,6 @@
 				A0C43A4A5B9F474BA75D7EA4 /* libRNEstimoteProximity.a */,
 			);
 			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		AE3371A82189C47F00C5F5B8 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AE3371AC2189C47F00C5F5B8 /* libRNEstimoteProximity.a */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		DC4FCBDD427B7296C4164BA1 /* Pods */ = {
@@ -815,10 +799,6 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
-				},
-				{
-					ProductGroup = AE3371A82189C47F00C5F5B8 /* Products */;
-					ProjectRef = 511C5A3381A648F3BDF7C50C /* RNEstimoteProximity.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1089,13 +1069,6 @@
 			fileType = archive.ar;
 			path = libRCTBlob.a;
 			remoteRef = ADBDB9261DFEBF0700ED6528 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		AE3371AC2189C47F00C5F5B8 /* libRNEstimoteProximity.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNEstimoteProximity.a;
-			remoteRef = AE3371AB2189C47F00C5F5B8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
