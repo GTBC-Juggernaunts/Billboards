@@ -58,7 +58,7 @@ export default class App extends Component<Props> {
           name: "Exploration Mode"
         }
       }
-    };
+    };         
     console.log("zone2", this.zone2);
     RNEP.proximityObserver.initialize(credentials, config);
     RNEP.proximityObserver.startObservingZones([this.zone2]);
@@ -72,6 +72,10 @@ export default class App extends Component<Props> {
     };
     this.zone2.onExitAction = context => {
       console.log("zone2 onExit", context);
+      console.log("inThisBitch", context.attachments.inThisBitch);
+      if (context.attachments.inThisBitch) {
+        this.setState({inThisBitch: false})
+      }
     };
     this.zone2.onChangeAction = contexts => {
       console.log("zone2 onChange", contexts);
@@ -99,7 +103,7 @@ export default class App extends Component<Props> {
           Exclusive Promotions Coming Your Way!
         </Text>
         <Text style={styles.welcome}>
-          {this.state.inThisBitch ? "We in this Bitch" : "We not in this bitch"}
+          {this.state.inThisBitch ? "Promotions Are Near" : "No Deals Near"}
         </Text>
         <Text style={styles.instructions}>{instructions}</Text>
         <Button onPress={this.enterAction} title="Get Started" />
