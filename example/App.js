@@ -28,7 +28,7 @@ const localhost = "http://192.168.0.3:4000";
 
 type Props = {};
 export default class App extends Component<Props> {
-  zone2 = new RNEP.ProximityZone(1, "Green");
+  zone2 = new RNEP.ProximityZone(1, "DigitalBillboard");
   enterAction = () => {
     // zone2 = new RNEP.ProximityZone(10, "mint-leaf");
     const ESTIMOTE_APP_ID = "digital-billboard-8gj";
@@ -54,21 +54,21 @@ export default class App extends Component<Props> {
 
     this.zone2.onEnterAction = context => {
       console.log("onEnterAction", context);
-      console.log("inThisBitch", context.attachments.inThisBitch);
-      if (context.attachments.inThisBitch) {
-        axios.get(localhost + "/api/coupons")
+      console.log("beaconInfo", context.attachments.beaconInfo);
+      if (context.attachments.beaconInfo) {
+        axios.get(localhost + "/api/coupons/" + context.attachments.beaconInfo)
           .then(res=> {
-            const coupon = res.data.coupon;
-            console.log("coupon retrieved", coupon);
-            this.setState({inThisBitch: true, coupon})
+            const data = res.data;
+            console.log("coupon retrieved", data);
+            this.setState({connected: true, data})
         })
       }
     };
     this.zone2.onExitAction = context => {
       console.log("zone2 onExit", context);
-      console.log("inThisBitch", context.attachments.inThisBitch);
-      if (context.attachments.inThisBitch) {
-        this.setState({inThisBitch: false})
+      console.log("beaconInfo", context.attachments.beaconInfo);
+      if (context.attachments.beaconInfo) {
+        this.setState({connected: false})
       }
     };
     this.zone2.onChangeAction = contexts => {
@@ -79,7 +79,7 @@ export default class App extends Component<Props> {
 
   state = {
     testState: "State is Working",
-    inThisBitch: false
+    connected: false
   };
 
   render() {
@@ -90,8 +90,9 @@ export default class App extends Component<Props> {
           Exclusive Promotions Coming Your Way!
         </Text>
         <Text style={styles.welcome}>
-          {this.state.inThisBitch ? this.state.coupon : "No Deals Near"}
+          {this.state.connected ? this.state.data.coupon : "No Deals Near"}
         </Text>
+        <Text>{this.state.connected ? this.state.data.tag + ": tag nearby" : ""}</Text>
         <Text style={styles.instructions}>{instructions}</Text>
         <Button onPress={this.enterAction} title="Get Started" />
       </View>
