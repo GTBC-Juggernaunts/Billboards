@@ -34,12 +34,12 @@ const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
   android:
     "Double tap R on your keyboard to reload,\n" +
-    "Shake or press menu button for dev menu",
+    "Shake or press menu button for dev menu"
 });
 
 type Props = {};
 export default class App extends Component<Props> {
-  zone2 = new RNEP.ProximityZone(5, "mint-leaf");
+  zone2 = new RNEP.ProximityZone(1, "mint-leaf");
   enterAction = () => {
     // zone2 = new RNEP.ProximityZone(10, "mint-leaf");
     const ESTIMOTE_APP_ID = "digital-billboard-app-026";
@@ -58,23 +58,21 @@ export default class App extends Component<Props> {
           name: "Exploration Mode"
         }
       }
-    };         
+    };
     console.log("zone2", this.zone2);
     RNEP.proximityObserver.initialize(credentials, config);
     RNEP.proximityObserver.startObservingZones([this.zone2]);
 
     this.zone2.onEnterAction = context => {
       console.log("onEnterAction", context);
-      console.log("inThisBitch", context.attachments.inThisBitch);
       if (context.attachments.inThisBitch) {
-        this.setState({inThisBitch: true})
+        this.setState({ inThisBitch: true });
       }
     };
     this.zone2.onExitAction = context => {
       console.log("zone2 onExit", context);
-      console.log("inThisBitch", context.attachments.inThisBitch);
       if (context.attachments.inThisBitch) {
-        this.setState({inThisBitch: false})
+        this.setState({ inThisBitch: false });
       }
     };
     this.zone2.onChangeAction = contexts => {
@@ -102,8 +100,8 @@ export default class App extends Component<Props> {
         <Text style={styles.welcome}>
           Exclusive Promotions Coming Your Way!
         </Text>
-        <Text style={styles.welcome}>
-          {this.state.inThisBitch ? "Promotions Are Near" : "No Deals Near"}
+        <Text style={styles.instructions}> State:
+          {this.state.inThisBitch ? " Promotions Near" : " No Deals Near"}
         </Text>
         <Text style={styles.instructions}>{instructions}</Text>
         <Button onPress={this.enterAction} title="Get Started" />
