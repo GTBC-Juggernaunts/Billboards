@@ -5,7 +5,7 @@
  * @format
  * @flow
  */
-
+import axios from 'axios';
 import React, { Component } from "react";
 import {
   Platform,
@@ -15,21 +15,7 @@ import {
   AppRegistry,
   Button
 } from "react-native";
-// import { name as appName } from "./app.json";
-// Redux
-// import {createStore} from 'redux';
-
-// initialize store
-// const store = createStore();
-
-// const reducer = () => {
-
-// };
-
-// AppRegistry.registerComponent(appName, () => App);
-
 import * as RNEP from "@estimote/react-native-proximity";
-
 const instructions = Platform.select({
   ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
   android:
@@ -37,13 +23,16 @@ const instructions = Platform.select({
     "Shake or press menu button for dev menu"
 });
 
+// the IP address of the computer you are running server.js on with the PORT
+const localhost = "http://192.168.0.3:4000";
+
 type Props = {};
 export default class App extends Component<Props> {
-  zone2 = new RNEP.ProximityZone(1, "mint-leaf");
+  zone2 = new RNEP.ProximityZone(1, "DigitalBillboard");
   enterAction = () => {
     // zone2 = new RNEP.ProximityZone(10, "mint-leaf");
-    const ESTIMOTE_APP_ID = "digital-billboard-app-026";
-    const ESTIMOTE_APP_TOKEN = "d6056fd23e22b958f7d478b2196e2c11";
+    const ESTIMOTE_APP_ID = "digital-billboard-8gj";
+    const ESTIMOTE_APP_TOKEN = "9dff6faa96af5162dd8b20ec44e49ea5";
     const credentials = new RNEP.CloudCredentials(
       ESTIMOTE_APP_ID,
       ESTIMOTE_APP_TOKEN
@@ -65,14 +54,21 @@ export default class App extends Component<Props> {
 
     this.zone2.onEnterAction = context => {
       console.log("onEnterAction", context);
-      if (context.attachments.inThisBitch) {
-        this.setState({ inThisBitch: true });
+      console.log("beaconInfo", context.attachments.beaconInfo);
+      if (context.attachments.beaconInfo) {
+        axios.get(localhost + "/api/coupons/" + context.attachments.beaconInfo)
+          .then(res=> {
+            const data = res.data;
+            console.log("coupon retrieved", data);
+            this.setState({connected: true, data})
+        })
       }
     };
     this.zone2.onExitAction = context => {
       console.log("zone2 onExit", context);
-      if (context.attachments.inThisBitch) {
-        this.setState({ inThisBitch: false });
+      console.log("beaconInfo", context.attachments.beaconInfo);
+      if (context.attachments.beaconInfo) {
+        this.setState({connected: false})
       }
     };
     this.zone2.onChangeAction = contexts => {
@@ -83,14 +79,7 @@ export default class App extends Component<Props> {
 
   state = {
     testState: "State is Working",
-    inThisBitch: false
-  };
-
-  changeState = () => {
-    this.setState({ testState: "Changed the state" });
-    console.log(this.state);
-    console.log(this.zone2);
-    this.enterAction();
+    connected: false
   };
 
   render() {
@@ -100,9 +89,10 @@ export default class App extends Component<Props> {
         <Text style={styles.welcome}>
           Exclusive Promotions Coming Your Way!
         </Text>
-        <Text style={styles.instructions}> State:
-          {this.state.inThisBitch ? " Promotions Near" : " No Deals Near"}
+        <Text style={styles.welcome}>
+          {this.state.connected ? this.state.data.coupon : "No Deals Near"}
         </Text>
+        <Text>{this.state.connected ? this.state.data.tag + ": tag nearby" : ""}</Text>
         <Text style={styles.instructions}>{instructions}</Text>
         <Button onPress={this.enterAction} title="Get Started" />
       </View>
