@@ -7,13 +7,13 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#AAC0AA"
+        backgroundColor: "#FFFFFF"
     },
     welcome: {
-        flex: 2,
+        flex: 3,
         fontSize: 20,
         textAlign: "center",
-        margin: 10
+        "margin-top": 100
     },
     instructions: {
         textAlign: "center",

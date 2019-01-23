@@ -2,12 +2,12 @@
 import axios from 'axios';
 import React, { Component } from "react";
 import {
-  createStackNavigator,
   Text,
   View,
   AppRegistry,
   Button
 } from "react-native";
+import AppNavigator from './components/Navigator'
 import Instructions from './components/instructions'
 import styles from './components/style'
 import * as RNEP from "@estimote/react-native-proximity";
@@ -76,26 +76,10 @@ export default class App extends Component {
     };
   };
 
-  createStackNavigator({
-    Home: { screen: Home },
-    Users: { screen: Users },
-  });
 
-  
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to Digital Billboards!</Text>
-        <Text style={styles.welcome}>
-          Exclusive Promotions Coming Your Way!
-        </Text>
-        <Text style={styles.welcome}>
-          {this.state.connected ? this.state.data.coupon : "No Deals Near"}
-        </Text>
-        <Text>{this.state.connected ? this.state.data.tag + ": tag nearby" : ""}</Text>
-        <Text style={styles.instructions}>{Instructions}</Text>
-        <Button onPress={this.enterAction} title="Get Started" />
-      </View>
+      <AppNavigator />
     );
   }
 };
