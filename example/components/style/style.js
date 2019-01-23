@@ -13,12 +13,17 @@ const styles = StyleSheet.create({
         flex: 3,
         fontSize: 20,
         textAlign: "center",
-        "margin-top": 100
+        marginTop: 100
     },
     instructions: {
         textAlign: "center",
         color: "#333333",
         marginBottom: 5
+    },
+    logo:{
+        flex: 3,
+        textAlign: "center",
+        marginTop: 100,
     }
 });
 
