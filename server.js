@@ -12,7 +12,7 @@ app.use(express.json());
 app.use(routes);
 
 //connect to mongodb
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/booksdb";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/billboarddb";
 mongoose.connect(MONGODB_URI);
 
 app.listen(PORT, () => {

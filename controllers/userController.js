@@ -1,23 +1,23 @@
 const models = require('../models');
 
 module.exports =  {
-  findOnePromo: function(req, res) {
-    models.Promotion
-      .findOne(req.query)
-      .then(dbPromo => res.json(dbPromo))
+  findUserById: function(req, res) {
+    models.User
+      .findOne(req.params.id)
+      .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
   create: function(req, res) {
-    models.Promotion
+    models.User
       .create(req.body)
-      .then(dbPromo => res.json(dbPromo))
+      .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err);
   },
   remove: function(req, res) {
-    models.Promotion
+    models.User
       .findById({ _id: req.params.id })
-      .then(dbPromo => dbPromo.remove())
-      .then(dbPromo => res.json(dbPromo))
+      .then(dbUser => dbUser.remove())
+      .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   }
 };

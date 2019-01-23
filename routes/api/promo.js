@@ -4,4 +4,14 @@ const promotionController = require('../../controllers/promotionController');
 // /api/promo
 router
   .route('/?tag')
-  .get(promotionController.findNextPromo)
+  .get(promotionController.findOnePromo);
+
+router
+  .route('/')
+  .post(promotionController.create);
+
+router
+  .route('/:id')
+  .delete(promotionController.remove);
+
+module.exports = router;
