@@ -3,5 +3,5 @@ const promotionController = require('../../controllers/promotionController');
 
 // /api/promo
 router
-  .route('/:tag')
-  .get(promotionController.)
+  .route('/?tag')
+  .get(promotionController.findNextPromo)

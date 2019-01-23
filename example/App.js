@@ -56,7 +56,7 @@ export default class App extends Component<Props> {
       console.log("onEnterAction", context);
       console.log("beaconInfo", context.attachments.beaconInfo);
       if (context.attachments.beaconInfo) {
-        axios.get(localhost + "/api/promo/" + context.attachments.beaconInfo)
+        axios.get(localhost + "/api/promo/?" + context.attachments.beaconInfo)
           .then(res=> {
             const data = res.data;
             console.log("coupon retrieved", data);
