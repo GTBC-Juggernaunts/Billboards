@@ -11,6 +11,8 @@
 
 # production
 /build
+.keystore
+grade.properties
 
 # misc
 .DS_Store
