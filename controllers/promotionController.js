@@ -1,6 +1,13 @@
 const models = require('../models');
 
 module.exports =  {
+  findAllPromos: function(req, res) {
+    models.Promotion
+      .find()
+      .sort({ExpirationDate: -1})
+      .then(dbPromo => res.json(dbPromo))
+      .catch(err => res.status(422).json(err))
+  },
   findOnePromo: function(req, res) {
     models.Promotion
       .findOne(req.query)

@@ -8,6 +8,7 @@ router
 
 router
   .route('/')
+  .get(promotionController.findAllPromos)
   .post(promotionController.create);
 
 router
