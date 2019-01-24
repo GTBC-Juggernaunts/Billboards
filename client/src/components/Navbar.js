@@ -5,7 +5,7 @@ class Navbar extends React.Component {
     return (
       <nav>
         <div className="nav-wrapper grey darken-3">
-          <a href="#!" className="brand-logo">Digital Billboards - Control Panel</a>
+          <a href="#!" className="brand-logo center">Digital Billboards - Control Panel</a>
           <a href="#" data-target="mobile-demo" className="sidenav-trigger"><i className="material-icons">menu</i></a>
           <ul className="right hide-on-med-and-down">
             <li><a href="/promotions/">Promotions</a></li>

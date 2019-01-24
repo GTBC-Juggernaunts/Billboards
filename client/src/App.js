@@ -14,8 +14,8 @@ class App extends Component {
           <Navbar/>
           <Switch>
             <Route exact path ="/" component={PromotionsPage} />
-            <Route exact path ="/promotion" component={PromotionsPage} />
-            <Route exact path ="/user" component={UsersPage} />
+            <Route exact path ="/promotions" component={PromotionsPage} />
+            <Route exact path ="/users" component={UsersPage} />
           </Switch>
         </div>
       </Router>

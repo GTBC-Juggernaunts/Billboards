@@ -5,17 +5,15 @@ const Beacon = require('./beacon');
 const Schema = mongoose.Schema;
 
 const PromotionSchema = new Schema({
-  Deal: {
+  PromotionText: {
     type: String,
     required: true
   },
-  ActiveBeacons: [
-    {
-    type: Schema.Types.ObjectId,
-    ref: Beacon
-    }
-  ],
-  PreferenceTag: {
+  BeaconTag: {
+   type: String,
+   required: true
+  },
+  PreferenceGroup: {
     type: String,
     required: true
   },
