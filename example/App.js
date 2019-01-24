@@ -24,15 +24,14 @@ const instructions = Platform.select({
 });
 
 // the IP address of the computer you are running server.js on with the PORT
-const localhost = "http://192.168.0.3:4000";
+const localhost = "http://192.168.1.3:4000";
 
 type Props = {};
 export default class App extends Component<Props> {
   zone2 = new RNEP.ProximityZone(1, "DigitalBillboard");
   enterAction = () => {
-    // zone2 = new RNEP.ProximityZone(10, "mint-leaf");
-    const ESTIMOTE_APP_ID = "digital-billboard-8gj";
-    const ESTIMOTE_APP_TOKEN = "9dff6faa96af5162dd8b20ec44e49ea5";
+    const ESTIMOTE_APP_ID = "digital-billboard-app-026";
+    const ESTIMOTE_APP_TOKEN = "d6056fd23e22b958f7d478b2196e2c11";
     const credentials = new RNEP.CloudCredentials(
       ESTIMOTE_APP_ID,
       ESTIMOTE_APP_TOKEN
@@ -59,7 +58,7 @@ export default class App extends Component<Props> {
         axios.get(localhost + "/api/coupons/" + context.attachments.beaconInfo)
           .then(res=> {
             const data = res.data;
-            console.log("coupon retrieved", data);
+            console.log("coupon retrieved", data);   
             this.setState({connected: true, data})
         })
       }
