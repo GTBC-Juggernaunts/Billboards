@@ -79,7 +79,18 @@ export default class App extends Component {
 
   render() {
     return (
-      <AppNavigator />
+      <View style={styles.container}>
+        <Text style={styles.welcome}>Welcome to Digital Billboards!</Text>
+        <Text style={styles.welcome}>
+          Exclusive Promotions Coming Your Way!
+        </Text>
+        <Text style={styles.welcome}>
+          {this.state.connected ? this.state.data.coupon : "No Deals Near"}
+        </Text>
+        <Text>{this.state.connected ? this.state.data.tag + ": tag nearby" : ""}</Text>
+        <Text style={styles.instructions}>{Instructions}</Text>
+        <Button onPress={this.enterAction} title="Get Started" />
+      </View>
     );
   }
 };
