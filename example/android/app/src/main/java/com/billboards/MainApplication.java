@@ -1,4 +1,4 @@
-package com.example;
+package com.billboards;
 
 import android.app.Application;
 
