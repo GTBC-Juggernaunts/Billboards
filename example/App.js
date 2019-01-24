@@ -1,34 +1,32 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow
- */
+// Dependencies
 import axios from 'axios';
 import React, { Component } from "react";
 import {
-  Platform,
-  StyleSheet,
   Text,
   View,
   AppRegistry,
   Button
 } from "react-native";
+import AppNavigator from './components/Navigator'
+import Instructions from './components/instructions'
+import styles from './components/style'
 import * as RNEP from "@estimote/react-native-proximity";
-const instructions = Platform.select({
-  ios: "Press Cmd+R to reload,\n" + "Cmd+D or shake for dev menu",
-  android:
-    "Double tap R on your keyboard to reload,\n" +
-    "Shake or press menu button for dev menu"
-});
+
 
 // the IP address of the computer you are running server.js on with the PORT
 const localhost = "http://192.168.1.3:4000";
+export default class App extends Component {
+  // App State
+  state = {
+    testState: "State is Working",
+    connected: false,
+    tags:[],
+  };
 
-type Props = {};
-export default class App extends Component<Props> {
+  // Create a new zone 
   zone2 = new RNEP.ProximityZone(1, "DigitalBillboard");
+
+  // Methods to interact with beacons
   enterAction = () => {
     const ESTIMOTE_APP_ID = "digital-billboard-app-026";
     const ESTIMOTE_APP_TOKEN = "d6056fd23e22b958f7d478b2196e2c11";
@@ -37,6 +35,7 @@ export default class App extends Component<Props> {
       ESTIMOTE_APP_TOKEN
     );
 
+    // Notification
     const config = {
       notification: {
         title: "Exploration mode is on",
@@ -76,10 +75,6 @@ export default class App extends Component<Props> {
     };
   };
 
-  state = {
-    testState: "State is Working",
-    connected: false
-  };
 
   render() {
     return (
@@ -92,28 +87,9 @@ export default class App extends Component<Props> {
           {this.state.connected ? this.state.data.coupon : "No Deals Near"}
         </Text>
         <Text>{this.state.connected ? this.state.data.tag + ": tag nearby" : ""}</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.instructions}>{Instructions}</Text>
         <Button onPress={this.enterAction} title="Get Started" />
       </View>
     );
   }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "#F5FCFF"
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: "center",
-    margin: 10
-  },
-  instructions: {
-    textAlign: "center",
-    color: "#333333",
-    marginBottom: 5
-  }
-});
+};
