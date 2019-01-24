@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, Button, Image} from 'react-native';
 import styles from '../style'
 
 class Home extends Component {
@@ -7,7 +7,7 @@ class Home extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.logo}>This is the Home Screen</Text>
-                <Button onPress={ () => this.props.navigation.navigate('HomeScreen')} title="Home" />
+                <Button onPress={ () => this.props.navigation.navigate('TestScreen')} title="Test Screen" />
             </View>
         )
     }
