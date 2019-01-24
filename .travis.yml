@@ -1,6 +1,7 @@
 language: node_js
 node_js: "lts/*"
-before_script: cd /client/src
+# Folder for test
+script: cd clients/src
 branches:
   only:
   - master
