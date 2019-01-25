@@ -18,7 +18,7 @@ module.exports =  {
     models.Promotion
       .create(req.body)
       .then(dbPromo => res.json(dbPromo))
-      .catch(err => res.status(422).json(err);
+      .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
     models.Promotion

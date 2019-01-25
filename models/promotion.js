@@ -19,7 +19,7 @@ const PromotionSchema = new Schema({
   },
   ExpirationDate: {
     type: Date,
-    required: true
+    required: false
   }
 });
 

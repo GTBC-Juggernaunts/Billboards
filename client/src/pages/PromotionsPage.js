@@ -1,6 +1,7 @@
 import React from "react";
-import PromotionForm from "../components/PromotionForm"
-import PromotionTable from "../components/PromotionTable";
+import PromotionForm from "../components/form/PromotionForm"
+import Table from "../components/table/Table"
+import API from "../utils/API"
 
 class PromotionsPage extends React.Component {
   state = {
@@ -8,7 +9,22 @@ class PromotionsPage extends React.Component {
   };
 
   componentDidMount() {
+    API.getPromotions()
+      .then(res => {
+        let data = [];
+        res.data.forEach(promo => {
+          data.push({
+            PromotionText: promo.PromotionText,
+            BeaconTag: promo.BeaconTag,
+            PreferenceGroup: promo.PreferenceGroup,
+            ExpirationDate: promo.ExpirationDate
+          })
+        })
 
+        this.setState({
+          data
+        })
+      })
   }
 
   render() {
@@ -22,7 +38,7 @@ class PromotionsPage extends React.Component {
             <PromotionForm/>
           </div>
           <div className="col s6">
-            <PromotionTable data={this.state.data}/>
+            <Table data={this.state.data}/>
           </div>
         </div>
       </div>

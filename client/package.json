@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3001/",
+  "proxy": "http://localhost:4000/",
   "dependencies": {
     "griddle-react": "^1.13.1",
     "react": "^16.7.0",

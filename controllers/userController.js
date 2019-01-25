@@ -11,7 +11,7 @@ module.exports =  {
     models.User
       .create(req.body)
       .then(dbUser => res.json(dbUser))
-      .catch(err => res.status(422).json(err);
+      .catch(err => res.status(422).json(err));
   },
   remove: function(req, res) {
     models.User
