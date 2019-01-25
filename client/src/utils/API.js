@@ -6,5 +6,8 @@ export default {
   },
   savePromotion: function(promotion) {
     return axios.post("/api/promo", promotion);
+  },
+  saveuser: function(user) {
+    return axios.post("/api/user", user);
   }
 }
