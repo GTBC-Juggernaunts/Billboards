@@ -19,7 +19,7 @@ class PromotionsPage extends React.Component {
             PreferenceGroup: promo.PreferenceGroup,
             ExpirationDate: promo.ExpirationDate
           })
-        })
+        });
 
         this.setState({
           data
