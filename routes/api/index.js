@@ -3,6 +3,6 @@ const promoRoutes = require("./promo");
 const userRoutes = require("./user");
 
 router.use('/promo', promoRoutes);
-router.use('user', userRoutes);
+router.use('/user', userRoutes);
 
 module.exports = router;
