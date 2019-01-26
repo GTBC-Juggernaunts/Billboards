@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const Promotion = require("./promotion")
+const Promotion = require("./promotion");
 
 const Schema = mongoose.Schema;
 
