@@ -5,7 +5,10 @@ module.exports =  {
     models.Promotion
       .find()
       .sort({ExpirationDate: -1})
-      .then(dbPromo => res.json(dbPromo))
+      .then(dbPromo => {
+        console.log(dbPromo);
+        res.json(dbPromo)
+      })
       .catch(err => res.status(422).json(err))
   },
   findOnePromo: function(req, res) {
