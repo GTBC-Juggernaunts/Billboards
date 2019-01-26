@@ -2,66 +2,35 @@ import React from 'react';
 import API from "../../utils/API";
 import TextInput from "./TextInput"
 
-class PromotionForm extends React.Component {
-    state = {
-      PromotionText: "",
-      BeaconTag: "",
-      PreferenceGroup: "",
-      ExpirationDate: ""
-    };
-
-  handleInputChange = event => {
-    const { name, value } = event.target;
-    this.setState({
-      [name]: value
-    });
-  };
-
-  handleSubmit = event => {
-    event.preventDefault();
-    console.log('submitting state');
-    console.log(this.state)
-    API.savePromotion(this.state)
-      .then(res => {
-        console.log(res);
-        if(res.status === 200) {
-          alert("New Promotion Successfully Added")
-        }
-        else {
-          alert("An error has occurred. Please check the console.")
-        }
-      })
-  }
-
-  render() {
+const PromotionForm = props => {
     return (
       <div className="row">
-        <form onSubmit={this.handleSubmit}>
+        <form onSubmit={props.handleSubmit}>
           <div className="row">
             <div className="col s6 offset-s3 z-depth-1">
               <TextInput
                 name="PromotionText"
                 label="Promotional Text"
-                value={this.state.PromotionText}
-                onChange={this.handleInputChange}
+                value={props.PromotionText}
+                onChange={props.handleInputChange}
               />
               <TextInput
                 name="BeaconTag"
                 label="Beacon Tag"
-                value={this.state.BeaconTag}
-                onChange={this.handleInputChange}
+                value={props.BeaconTag}
+                onChange={props.handleInputChange}
               />
               <TextInput
                 name="PreferenceGroup"
                 label="Preference Group"
-                value={this.state.PreferenceGroup}
-                onChange={this.handleInputChange}
+                value={props.PreferenceGroup}
+                onChange={props.handleInputChange}
               />
               <TextInput
                 name="ExpirationDate"
                 label="Expiration Date"
-                value={this.state.ExpirationDate}
-                onChange={this.handleInputChange}
+                value={props.ExpirationDate}
+                onChange={props.handleInputChange}
               />
             </div>
           </div>
@@ -76,7 +45,6 @@ class PromotionForm extends React.Component {
         </form>
       </div>
     )
-  }
-}
+};
 
 export default PromotionForm
