@@ -24,7 +24,8 @@ export default class App extends Component {
     tags:[],
   };
 
-  // Create a new zone
+
+  // Create a new zone 
   zone2 = new RNEP.ProximityZone(1, "DigitalBillboard");
 
   // Methods to interact with beacons
