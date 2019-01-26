@@ -1,7 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/clients/src/node_modules
 /node_modules
 /.pnp
 .pnp.js
@@ -11,8 +10,6 @@
 
 # production
 /build
-.keystore
-grade.properties
 
 # misc
 .DS_Store
@@ -24,9 +21,3 @@ grade.properties
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-#IDE
-.vscode
-.idea
-settings.json
-.vscode/settings.json

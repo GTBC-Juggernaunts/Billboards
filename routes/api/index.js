@@ -1,6 +1,8 @@
 const router = require('express').Router();
-const couponRoutes = require("./coupons");
+const promoRoutes = require("./promo");
+const userRoutes = require("./user");
 
-router.use('/coupons', couponRoutes);
+router.use('/promo', promoRoutes);
+router.use('/user', userRoutes);
 
 module.exports = router;
