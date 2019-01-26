@@ -23,6 +23,7 @@ export default class App extends Component {
     tags:[],
   };
 
+
   // Create a new zone 
   zone2 = new RNEP.ProximityZone(1, "DigitalBillboard");
 
@@ -59,7 +60,7 @@ export default class App extends Component {
             const data = res.data;
             console.log("coupon retrieved", data);   
             this.setState({connected: true, data})
-        })
+          })
       }
     };
     this.zone2.onExitAction = context => {
