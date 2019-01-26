@@ -5,10 +5,14 @@ import API from "../utils/API"
 
 class PromotionsPage extends React.Component {
   state = {
-    data:[]
+    data:[],
+    PromotionText: "",
+    BeaconTag: "",
+    PreferenceGroup: "",
+    ExpirationDate: "",
   };
 
-  componentDidMount() {
+  reloadData = () => {
     API.getPromotions()
       .then(res => {
         let data = [];
@@ -25,7 +29,35 @@ class PromotionsPage extends React.Component {
           data
         })
       })
+  };
+
+  componentDidMount() {
+    this.reloadData();
   }
+
+  handleInputChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    console.log('submitting state');
+    console.log(this.state);
+    API.savePromotion(this.state)
+      .then(res => {
+        console.log(res);
+        if(res.status === 200) {
+          alert("New Promotion Successfully Added")
+        }
+        else {
+          alert("An error has occurred. Please check the console.")
+        }
+      })
+      .then(this.reloadData());
+  };
 
   render() {
     return(
@@ -35,7 +67,14 @@ class PromotionsPage extends React.Component {
         </div>
         <div className="row">
           <div className="col s6">
-            <PromotionForm/>
+            <PromotionForm
+              handleInputChange={this.handleInputChange}
+              handleSubmit={this.handleSubmit}
+              PromotionText={this.state.PromotionText}
+              BeaconTag={this.state.BeaconTag}
+              PreferenceGroup={this.state.PreferenceGroup}
+              ExpirationDate={this.state.ExpirationDate}
+            />
           </div>
           <div className="col s6">
             <Table data={this.state.data}/>
