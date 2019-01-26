@@ -14,7 +14,7 @@ import * as RNEP from "@estimote/react-native-proximity";
 
 
 // the IP address of the computer you are running server.js on with the PORT
-const localhost = "http://192.168.1.70:4000";
+const localhost = "http://192.168.0.3:4000";
 
 export default class App extends Component {
   // App State
@@ -30,8 +30,8 @@ export default class App extends Component {
 
   // Methods to interact with beacons
   enterAction = () => {
-    const ESTIMOTE_APP_ID = "billboards-o72";
-    const ESTIMOTE_APP_TOKEN = "563764b6a5ebe4d450cacda2f9438257";
+    const ESTIMOTE_APP_ID = "digital-billboard-8gj";
+    const ESTIMOTE_APP_TOKEN = "9dff6faa96af5162dd8b20ec44e49ea5";
     const credentials = new RNEP.CloudCredentials(
       ESTIMOTE_APP_ID,
       ESTIMOTE_APP_TOKEN
@@ -56,11 +56,17 @@ export default class App extends Component {
       console.log("onEnterAction", context);
       console.log("beaconInfo", context.attachments.beaconInfo);
       if (context.attachments.beaconInfo) {
-        axios.get(localhost + "/api/coupons/" + context.attachments.beaconInfo)
+        axios.get(localhost + "/api/promo/?" + context.attachments.beaconInfo)
           .then(res=> {
             const data = res.data;
             console.log("coupon retrieved", data);
-            this.setState({connected: true, data})
+            this.setState({
+              connected: true,
+              data: {
+                tag: data[0].BeaconTag,
+                coupon: data[0].PromotionText
+              }
+            })
           })
       }
     };
