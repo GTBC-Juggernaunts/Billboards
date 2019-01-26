@@ -1,6 +1,6 @@
 import React from 'react';
 import Griddle from 'griddle-react';
-import './table.css';
+
 
 const Table = props => {
   return(
