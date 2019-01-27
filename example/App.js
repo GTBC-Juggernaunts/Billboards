@@ -13,7 +13,10 @@ export default class App extends Component {
   // App State
   state = {
     connected: false,
-    beacon: [{name:'purple-haze'}]
+    beacon: [
+      { name: "purple-haze", timestamp: 9999999999999 },
+      { name: "mint-leaf", timestamp: 9999999999999 }
+    ]
   };
 
   // Create a new zone
@@ -48,7 +51,7 @@ export default class App extends Component {
     // triggers when customer is within range of beacon for the 1st time
     this.zone2.onEnterAction = context => {
       console.log("onEnterAction", context);
-      console.log("beaconInfo", context.attachments.beaconInfo);
+      // console.log("beaconInfo", context.attachments.beaconInfo);
       if (context.attachments.beaconInfo) {
         axios
           .get(localhost + "/api/promo/?" + context.attachments.beaconInfo)
@@ -62,7 +65,7 @@ export default class App extends Component {
                 coupon: data[0].PromotionText
               }
             });
-            console.log("state, onEnter", this.state);
+            // console.log("state, onEnter", this.state);
           });
       }
     };
@@ -82,44 +85,60 @@ export default class App extends Component {
       // beacon array to setState
       const beaconArr = [];
 
-
+      // loop through all beacons that are in the context array from the onChangeAction()
       contexts.forEach(beacon => {
-        // if user hasn't walked near the beacon then add beacon to state
-        // if (!this.state.beacon.includes(beacon.attachments.beaconInfo)) {
-        //   console.log(
-        //     "This doesn't exist in state",
-        //     beacon.attachments.beaconInfo
-        //   );
-        //   // push beacons to array that don't currently exists in state
-        //   beaconArr.push({
-        //     name: beacon.attachments.beaconInfo,
-        //     timeStamp: Date.now()
-        //   });
-        //   this.setState({ beacon: beaconArr });
-        //   console.log("state, onChange", this.state);
-        // }
-        // pass in beacon name and beacons are that in state
-        const resultObj = this.checkBeacon(beacon.attachments.beaconInfo, this.state.beacon);
-        console.log('resObj',resultObj)
-        beaconArr.push({name:resultObj});
-        console.log('beaconArr', beaconArr);
+        const resultObj = this.checkBeacon(
+          beacon.attachments.beaconInfo,
+          this.state.beacon
+        );
+        // console.log("resObj", resultObj);
+        beaconArr.push(resultObj);
+        console.log("beaconArr", beaconArr);
       });
+
+      this.setState({ beacon: beaconArr });
+      console.log(`state onChange`);
+      console.log(this.state);
     };
   };
 
-  checkBeacon = (nameKey, array) => {
-    for (let i=0; i < array.length; i++) {
-      // if customer has went near beacon
-      if (array[i].name === nameKey) {
-        console.log(`Matches: ${array[i].name}`)
-        return array[i].name
+  checkBeacon = (beaconName, array) => {
+    // current time in milliseconds
+    const currentTime = +new Date();
+    // const timeDifferent = currentTime
+    for (let i = 0; i < array.length; i++) {
+      let timeDifference = currentTime - array[i].timestamp;
+      console.log(`timeDifference: ${array[i].name}, ${timeDifference}`);
+      // beacon has already been triggered & timestamp > 10 min
+      if (array[i].name === beaconName && timeDifference > 600000) {
+        console.log(
+          `Beacon Triggered: ${array[i].name} timestamp > 10 min: ${
+            array[i].timestamp
+          }`
+        );
+        // TODO: send request to server to check for new promos since 10 minutes have passed
+        return { name: beaconName, timestamp: currentTime };
+
+        // beacon has been triggered & timestamp < 10 min
+        // then return the beacon without altering its time
+      } else if (array[i].name === beaconName && timeDifference < 600000) {
+        console.log(
+          `Beacon Triggered: ${array[i].name} timestamp < 10 min: ${
+            array[i].timestamp
+          }`
+        );
+        return { name: beaconName, timestamp: array[i].timestamp };
       } else {
-        // else customer has not went near beacon
-        console.log(`Doesn't Match: ${array[i].name}`)
-        return nameKey
+        // beacon has not been triggered yet; return beacon with the current time
+        console.log(
+          `beacon hasn't been triggered: ${
+            array[i].name
+          } currentTime: ${currentTime}`
+        );
+        return { name: beaconName, timestamp: currentTime };
       }
     }
-  }
+  };
 
   render() {
     return (
