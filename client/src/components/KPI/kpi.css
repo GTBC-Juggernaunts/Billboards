@@ -1,0 +1,10 @@
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.KPI {
+  font-size: 32px;
+
+}
