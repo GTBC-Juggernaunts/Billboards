@@ -1,0 +1,37 @@
+.sidebar-title{
+  background-color: #424242;
+  color: #fff;
+  font-size: 24px;
+  padding-left: 32px;
+}
+
+.sidenav-container{
+  text-align: left;
+  min-height: 100%;
+}
+
+.collapsed-sidebar {
+  min-height: 100%;
+  padding-top: 10px;
+  background-color: #424242;
+  width: 50px;
+  position: relative;
+  text-align: center;
+  left: 0;
+}
+
+.collapsed-sidebar .material-icons {
+  font-size: 32px;
+}
+
+.collapsed-sidebar a{
+  color: #fff
+}
+
+.collapsed-sidebar a:hover {
+  color: #78909c
+}
+
+.subheader {
+  font-size: 16px;
+}

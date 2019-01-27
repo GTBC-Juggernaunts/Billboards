@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Navbar from "./components/Navbar"
+import SideNav from './components/Navigation/SideNav'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
-import PromotionsPage from "./pages/PromotionsPage";
+import PromotionsControl from "./pages/PromotionsControl";
+import PromotionsDashboard from "./pages/PromotionsDashboard"
 import UsersPage from "./pages/UsersPage"
 
 
@@ -11,12 +12,18 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Navbar/>
-          <Switch>
-            <Route exact path ="/" component={PromotionsPage} />
-            <Route exact path ="/promotions" component={PromotionsPage} />
-            <Route exact path ="/users" component={UsersPage} />
-          </Switch>
+          <SideNav
+
+          />
+          <div className="page-wrapper">
+            <Switch>
+              <Route exact path ="/" component={PromotionsDashboard} />
+              <Route exact path ="/promotions/dashboard" component={PromotionsDashboard} />
+              <Route exact path ="/promotions/control" component={PromotionsControl} />
+              <Route exact path ="/users" component={UsersPage} />
+            </Switch>
+          </div>
+
         </div>
       </Router>
     );
