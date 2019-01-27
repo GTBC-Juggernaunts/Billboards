@@ -1,5 +1,6 @@
 .form-card {
   background-color: #fff;
+  padding: 20px;
 }
 
 .input-field input[type=text]:focus + label{

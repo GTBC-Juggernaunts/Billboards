@@ -49,7 +49,7 @@ class PromotionsControl extends React.Component {
     console.log(this.state);
     API.savePromotion(this.state)
       .then(res => {
-        console.log(res);
+        console.log("axiosresponse",res);
         if(res.status === 200) {
           alert("New Promotion Successfully Added")
         }
@@ -75,7 +75,6 @@ class PromotionsControl extends React.Component {
             <span className="sidebar-text">Digital Billboards</span>
           </div>
         </div>
-        <div className="row">
             <div className="col-12 wide-container">
               <PromotionForm
                 handleInputChange={this.handleInputChange}
@@ -95,7 +94,6 @@ class PromotionsControl extends React.Component {
               />
             </div>
           </div>
-        </div>
       </div>
     )
   }
