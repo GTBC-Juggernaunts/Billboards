@@ -1,6 +1,5 @@
 .mainContainer {
-  position: relative;
-  height: 100%;
+  min-height: calc(100vh - 47px);
 }
 
 .kpiContainer {
@@ -14,7 +13,7 @@
 }
 
 .sidebar-area {
-  height: calc(100vh - 47px);
+  min-height: calc(100vh - 47px);
   background-color: #424242;
   color: #fff;
   width: 50px;
@@ -22,9 +21,11 @@
 
 .sidebar-text {
   color: #607d8b;
-  transform: rotate(-90deg);
   font-size: 24px;
-  height: 100vh;
+  writing-mode: vertical-lr;
+  text-orientation: sideways;
+  transform: rotate(180deg);
+  line-height: 46px;
 }
 
 .wide-container {

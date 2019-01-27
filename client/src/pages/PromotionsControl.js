@@ -37,9 +37,9 @@ class PromotionsControl extends React.Component {
   }
 
   handleInputChange = event => {
-    const { Header, value } = event.target;
+    const { name, value } = event.target;
     this.setState({
-      [Header]: value
+      [name]: value
     });
   };
 
@@ -75,7 +75,7 @@ class PromotionsControl extends React.Component {
             <span className="sidebar-text">Digital Billboards</span>
           </div>
         </div>
-            <div className="col-12 wide-container">
+            <div className="col s12 wide-container">
               <PromotionForm
                 handleInputChange={this.handleInputChange}
                 handleSubmit={this.handleSubmit}
@@ -85,8 +85,8 @@ class PromotionsControl extends React.Component {
                 ExpirationDate={this.state.ExpirationDate}
               />
           </div>
-          <div className="col-12 wide-container">
-            <div className="col s6">
+          <div className="col s12 wide-container">
+            <div className="col s12">
               <Table
                 data={this.state.data}
                 columns={this.columns}
