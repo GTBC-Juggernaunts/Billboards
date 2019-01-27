@@ -1,0 +1,12 @@
+.rt-th {
+  background-color: #424242;
+  color: #fff;
+}
+
+.rt-td {
+  border: 0 !important;
+}
+
+.rt-tr.-odd {
+  background-color: #f5f5f5;
+}
