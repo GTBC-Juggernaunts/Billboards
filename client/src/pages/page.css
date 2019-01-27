@@ -19,3 +19,14 @@
   color: #fff;
   width: 50px;
 }
+
+.sidebar-text {
+  color: #607d8b;
+  transform: rotate(-90deg);
+  font-size: 24px;
+  height: 100vh;
+}
+
+.wide-container {
+  padding: 20px 20px 20px 70px;
+}

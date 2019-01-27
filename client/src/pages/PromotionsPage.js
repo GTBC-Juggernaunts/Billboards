@@ -72,7 +72,7 @@ class PromotionsPage extends React.Component {
     return(
       <div className="mainContainer">
         <div className="row">
-            <div className="col s6">
+            <div className="col s12">
               <PromotionForm
                 handleInputChange={this.handleInputChange}
                 handleSubmit={this.handleSubmit}
