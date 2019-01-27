@@ -1,8 +1,17 @@
 .mainContainer {
-  margin-top: 20px;
+  position: relative;
 }
 
 .kpiContainer {
   display: flex;
   justify-content: space-between;
+  padding: 0 30px 0 30px;
+}
+
+
+.sidebar-area {
+  height: 100vh;
+  background-color: #424242;
+  color: #fff;
+  width: 50px;
 }
