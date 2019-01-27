@@ -1,13 +1,14 @@
 import React from 'react';
-import API from "../../utils/API";
 import TextInput from "./TextInput"
+import './form.css'
 
 const PromotionForm = props => {
     return (
       <div className="row">
         <form onSubmit={props.handleSubmit}>
           <div className="row">
-            <div className="col s6 offset-s3 z-depth-1">
+            <div className="col s12 z-depth-1 form-card">
+              <h5>New Promotion</h5>
               <TextInput
                 name="PromotionText"
                 label="Promotional Text"
@@ -32,16 +33,17 @@ const PromotionForm = props => {
                 value={props.ExpirationDate}
                 onChange={props.handleInputChange}
               />
+              <div className="row submit-btn-container">
+                <button
+                  className="btn grey darken-3 waves-effect waves-light"
+                  type="submit"
+                  name="action">
+                  Submit
+                </button>
+              </div>
             </div>
+
           </div>
-        <div className="row">
-          <button
-            className="btn grey darken-3 waves-effect waves-light"
-            type="submit"
-            name="action">
-            Submit
-          </button>
-        </div>
         </form>
       </div>
     )

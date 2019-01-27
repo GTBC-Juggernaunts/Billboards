@@ -1,5 +1,6 @@
 import React from "react";
 import KPI from "../components/KPI/KPI"
+import './page.css'
 
 class PromotionsDashboard extends React.Component {
   state={
@@ -17,7 +18,11 @@ class PromotionsDashboard extends React.Component {
   render() {
     return(
       <div className="mainContainer">
-        <div className="sidebar-area left"/>
+        <div className="sidebar-area left">
+          <div className="sidebar-text">
+            <span className="sidebar-text">Digital Billboards</span>
+          </div>
+        </div>
         <div className="row">
           <div className="kpiContainer">
             <KPI 

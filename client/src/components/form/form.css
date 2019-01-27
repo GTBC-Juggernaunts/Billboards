@@ -1,0 +1,17 @@
+.form-card {
+  background-color: #fff;
+}
+
+.input-field input[type=text]:focus + label{
+  color: #37474f !important;
+}
+
+.input-field input:focus {
+  border-bottom: 1px solid #37474f !important;
+  box-shadow: 0 1px 0 0 #37474f !important;
+}
+
+.submit-btn-container {
+  text-align: right;
+  padding-right: 30px;
+}

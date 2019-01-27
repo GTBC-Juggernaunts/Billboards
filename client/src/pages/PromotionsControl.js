@@ -60,24 +60,39 @@ class PromotionsControl extends React.Component {
       .then(this.reloadData());
   };
 
+  columns = [
+    { Header: 'Promotion Text', accessor: 'PromotionText' },
+    { Header: 'Beacon Tag', accessor: 'BeaconTag' },
+    { Header: 'Preference Group', accessor: 'PreferenceGroup' },
+    { Header: 'Expiration Date', accessor: 'ExpirationDate' }
+  ];
+
   render() {
     return(
       <div className="mainContainer">
-        <div className="sidebar-area left"/>
-        <div className="row">
-          <div className="col s6">
-            <PromotionForm
-              handleInputChange={this.handleInputChange}
-              handleSubmit={this.handleSubmit}
-              PromotionText={this.state.PromotionText}
-              BeaconTag={this.state.BeaconTag}
-              PreferenceGroup={this.state.PreferenceGroup}
-              ExpirationDate={this.state.ExpirationDate}
-            />
+        <div className="sidebar-area left">
+          <div className="sidebar-text">
+            <span className="sidebar-text">Digital Billboards</span>
           </div>
-          <div className="col s6">
-            <div className="container">
-              Table goes here maybe
+        </div>
+        <div className="row">
+            <div className="col-12 wide-container">
+              <PromotionForm
+                handleInputChange={this.handleInputChange}
+                handleSubmit={this.handleSubmit}
+                PromotionText={this.state.PromotionText}
+                BeaconTag={this.state.BeaconTag}
+                PreferenceGroup={this.state.PreferenceGroup}
+                ExpirationDate={this.state.ExpirationDate}
+              />
+          </div>
+          <div className="col-12 wide-container">
+            <div className="col s6">
+              <Table
+                data={this.state.data}
+                columns={this.columns}
+                defaultPageSize={10}
+              />
             </div>
           </div>
         </div>
