@@ -1,5 +1,6 @@
 .mainContainer {
   position: relative;
+  height: 100%;
 }
 
 .kpiContainer {
@@ -8,9 +9,12 @@
   padding: 0 30px 0 30px;
 }
 
+.row {
+  margin-bottom: 0;
+}
 
 .sidebar-area {
-  height: 100vh;
+  height: calc(100vh - 47px);
   background-color: #424242;
   color: #fff;
   width: 50px;
