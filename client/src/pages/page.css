@@ -1,0 +1,8 @@
+.mainContainer {
+  margin-top: 20px;
+}
+
+.kpiContainer {
+  display: flex;
+  justify-content: space-between;
+}
