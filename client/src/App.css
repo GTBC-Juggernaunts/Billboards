@@ -9,6 +9,25 @@
 
 }
 
+.sidebar-area {
+  min-height: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: #424242;
+  color: #fff;
+  width: 50px;
+}
+
+.sidebar-text {
+  color: #607d8b;
+  font-size: 24px;
+  writing-mode: vertical-lr;
+  text-orientation: sideways;
+  transform: rotate(180deg);
+  line-height: 46px;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

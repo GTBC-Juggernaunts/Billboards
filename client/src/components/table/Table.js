@@ -9,7 +9,7 @@ const Table = props => {
     return data.length > props.defaultPageSize;
   };
   const pageSize= data => {
-    if ( data.length < 10) {
+    if ( data.length < 8) {
       return data.length
     }
     else {
@@ -23,7 +23,7 @@ const Table = props => {
       columns={props.columns}
       resolveData={data => data.map(row => row)}
       showPagination={showPagination(props.data)}
-      defaultPageSize={10}
+      defaultPageSize={8}
     />
   )
 };

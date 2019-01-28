@@ -4,7 +4,7 @@ import './page.css';
 import API from "../utils/API"
 import Table from "../components/table/Table";
 
-class PromotionsControl extends React.Component {
+class PromotionsControlPage extends React.Component {
   state = {
     data:[],
     PromotionText: "",
@@ -70,11 +70,6 @@ class PromotionsControl extends React.Component {
   render() {
     return(
       <div className="mainContainer">
-        <div className="sidebar-area left">
-          <div className="sidebar-text">
-            <span className="sidebar-text">Digital Billboards</span>
-          </div>
-        </div>
             <div className="col s12 wide-container">
               <PromotionForm
                 handleInputChange={this.handleInputChange}
@@ -90,7 +85,7 @@ class PromotionsControl extends React.Component {
               <Table
                 data={this.state.data}
                 columns={this.columns}
-                defaultPageSize={10}
+                defaultPageSize={8}
               />
             </div>
           </div>
@@ -99,4 +94,4 @@ class PromotionsControl extends React.Component {
   }
 }
 
-export default PromotionsControl
+export default PromotionsControlPage

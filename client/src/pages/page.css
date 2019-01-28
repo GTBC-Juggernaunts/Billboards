@@ -12,22 +12,6 @@
   margin-bottom: 0;
 }
 
-.sidebar-area {
-  min-height: calc(100vh - 47px);
-  background-color: #424242;
-  color: #fff;
-  width: 50px;
-}
-
-.sidebar-text {
-  color: #607d8b;
-  font-size: 24px;
-  writing-mode: vertical-lr;
-  text-orientation: sideways;
-  transform: rotate(180deg);
-  line-height: 46px;
-}
-
 .wide-container {
   padding: 20px 20px 20px 70px;
   height: 100%;

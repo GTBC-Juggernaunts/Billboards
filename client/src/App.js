@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import SideNav from './components/Navigation/SideNav'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
-import PromotionsControl from "./pages/PromotionsControl";
-import PromotionsDashboard from "./pages/PromotionsDashboard"
+import PromotionsControlPage from "./pages/PromotionsControlPage";
+import DashboardPage from "./pages/DashboardPage"
 import UsersPage from "./pages/UsersPage"
 
 
@@ -15,11 +15,16 @@ class App extends Component {
           <SideNav
 
           />
+          <div className="sidebar-area left">
+            <div className="sidebar-text">
+              <span className="sidebar-text">Digital Billboards</span>
+            </div>
+          </div>
           <div className="page-wrapper">
             <Switch>
-              <Route exact path ="/" component={PromotionsDashboard} />
-              <Route exact path ="/promotions/dashboard" component={PromotionsDashboard} />
-              <Route exact path ="/promotions/control" component={PromotionsControl} />
+              <Route exact path ="/" component={DashboardPage} />
+              <Route exact path ="/dashboard" component={DashboardPage} />
+              <Route exact path ="/promotions" component={PromotionsControlPage} />
               <Route exact path ="/users" component={UsersPage} />
             </Switch>
           </div>
