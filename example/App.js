@@ -14,8 +14,8 @@ export default class App extends Component {
   state = {
     connected: false,
     beacon: [
-      { name: "purple-haze", timestamp: 9999999999999 },
-      { name: "mint-leaf", timestamp: 9999999999999 }
+      // { name: "purple-haze", timestamp: 9999999999999 },
+      // { name: "mint-leaf", timestamp: 9999999999999 }
     ]
   };
 
@@ -65,7 +65,6 @@ export default class App extends Component {
                 coupon: data[0].PromotionText
               }
             });
-            // console.log("state, onEnter", this.state);
           });
       }
     };
@@ -78,24 +77,22 @@ export default class App extends Component {
         this.setState({ connected: false });
       }
     };
-    // if beaconInfo exists in current state then do nothing
-    // else
+    // onChange event gives you granular data about which exact beacons are in range
     this.zone2.onChangeAction = contexts => {
       console.log("zone2 onChange", contexts);
       // beacon array to setState
       const beaconArr = [];
 
-      // loop through all beacons that are in the context array from the onChangeAction()
+      // loop through all beacons that are in the context array from the onChangeAction
       contexts.forEach(beacon => {
-        const resultObj = this.checkBeacon(
-          beacon.attachments.beaconInfo,
-          this.state.beacon
-        );
-        // console.log("resObj", resultObj);
+        // pass in beacons within range and beacon array in current state
+        // TODO: need to add logic to handle an empty array being passed into checkBeacon()
+        const resultObj = this.checkBeacon(beacon.attachments.beaconInfo,this.state.beacon);
+        // push beacons to the beaconArr
         beaconArr.push(resultObj);
         console.log("beaconArr", beaconArr);
       });
-
+      // setState the beaconArr
       this.setState({ beacon: beaconArr });
       console.log(`state onChange`);
       console.log(this.state);
@@ -105,36 +102,24 @@ export default class App extends Component {
   checkBeacon = (beaconName, array) => {
     // current time in milliseconds
     const currentTime = +new Date();
-    // const timeDifferent = currentTime
+    // loop through beacons to see if they've been discovered within 10 minutes
     for (let i = 0; i < array.length; i++) {
+      // time difference from current time and last time the beacon was triggered
       let timeDifference = currentTime - array[i].timestamp;
       console.log(`timeDifference: ${array[i].name}, ${timeDifference}`);
       // beacon has already been triggered & timestamp > 10 min
       if (array[i].name === beaconName && timeDifference > 600000) {
-        console.log(
-          `Beacon Triggered: ${array[i].name} timestamp > 10 min: ${
-            array[i].timestamp
-          }`
-        );
+        console.log(`Beacon Triggered: ${array[i].name} timestamp > 10 min: ${array[i].timestamp}`);
         // TODO: send request to server to check for new promos since 10 minutes have passed
         return { name: beaconName, timestamp: currentTime };
-
-        // beacon has been triggered & timestamp < 10 min
-        // then return the beacon without altering its time
+        // beacon has been triggered & timestamp < 10 min return the beacon without altering its time
       } else if (array[i].name === beaconName && timeDifference < 600000) {
-        console.log(
-          `Beacon Triggered: ${array[i].name} timestamp < 10 min: ${
-            array[i].timestamp
-          }`
-        );
+        console.log(`Beacon Triggered: ${array[i].name} timestamp < 10 min: ${array[i].timestamp}`);
         return { name: beaconName, timestamp: array[i].timestamp };
       } else {
         // beacon has not been triggered yet; return beacon with the current time
-        console.log(
-          `beacon hasn't been triggered: ${
-            array[i].name
-          } currentTime: ${currentTime}`
-        );
+        console.log(`beacon hasn't been triggered: ${array[i].name} currentTime: ${currentTime}`);
+        // TODO: send request to server to check for new promos
         return { name: beaconName, timestamp: currentTime };
       }
     }
