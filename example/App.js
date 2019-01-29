@@ -81,15 +81,18 @@ export default class App extends Component {
     this.zone2.onChangeAction = contexts => {
       console.log("zone2 onChange", contexts);
       // beacon array to setState
-      const beaconArr = [];
+      let beaconArr = [];
 
       // loop through all beacons that are in the context array from the onChangeAction
-      contexts.forEach(beacon => {
+      contexts.forEach(nearbyBeacons => {
         // pass in beacons within range and beacon array in current state
         // TODO: need to add logic to handle an empty array being passed into checkBeacon()
-        const resultObj = this.checkBeacon(beacon.attachments.beaconInfo,this.state.beacon);
+        const resultObj = this.checkBeacon(nearbyBeacons.attachments.beaconInfo,this.state.beacon);
+        console.log("resultObj", resultObj);
         // push beacons to the beaconArr
-        beaconArr.push(resultObj);
+        // beaconArr.push(resultObj);
+        // beaconArr.push(resultObj);        
+        beaconArr = resultObj;        
         console.log("beaconArr", beaconArr);
       });
       // setState the beaconArr
@@ -98,29 +101,59 @@ export default class App extends Component {
       console.log(this.state);
     };
   };
-
+  // if it's more than 10 min that's when you 
   checkBeacon = (beaconName, array) => {
+    // check for empty array 
+    // if its empty than return the new beacon
+
     // current time in milliseconds
     const currentTime = +new Date();
-    // loop through beacons to see if they've been discovered within 10 minutes
-    for (let i = 0; i < array.length; i++) {
-      // time difference from current time and last time the beacon was triggered
-      let timeDifference = currentTime - array[i].timestamp;
-      console.log(`timeDifference: ${array[i].name}, ${timeDifference}`);
-      // beacon has already been triggered & timestamp > 10 min
-      if (array[i].name === beaconName && timeDifference > 600000) {
-        console.log(`Beacon Triggered: ${array[i].name} timestamp > 10 min: ${array[i].timestamp}`);
-        // TODO: send request to server to check for new promos since 10 minutes have passed
-        return { name: beaconName, timestamp: currentTime };
-        // beacon has been triggered & timestamp < 10 min return the beacon without altering its time
-      } else if (array[i].name === beaconName && timeDifference < 600000) {
-        console.log(`Beacon Triggered: ${array[i].name} timestamp < 10 min: ${array[i].timestamp}`);
-        return { name: beaconName, timestamp: array[i].timestamp };
-      } else {
-        // beacon has not been triggered yet; return beacon with the current time
-        console.log(`beacon hasn't been triggered: ${array[i].name} currentTime: ${currentTime}`);
-        // TODO: send request to server to check for new promos
-        return { name: beaconName, timestamp: currentTime };
+    console.log("beaconName", beaconName)
+    console.log("ARRAY", array)
+    
+
+    if (array === undefined || array.length == 0) {
+      console.log('array is undefined', { name: beaconName, timestamp: currentTime })
+      const newArr = []
+      newArr.push({ name: beaconName, timestamp: currentTime });
+          console.log('undefined block, newArr', newArr);
+          return newArr; 
+    } else {
+      // loop through beacons to see if they've been discovered within 10 minutes
+      for (let i = 0; i < array.length; i++) {
+        // time difference from current time and last time the beacon was triggered
+        let timeDifference = currentTime - array[i].timestamp;
+        console.log(`timeDifference: ${array[i].name}, ${timeDifference}`);
+        // beacon has already been triggered & timestamp > 10 min
+        if (array[i].name === beaconName && timeDifference > 600000) {
+          console.log(`Beacon Triggered: ${array[i].name} timestamp > 10 min: ${array[i].timestamp}`);
+          // TODO: send request to server to check for new promos since 10 minutes have passed
+          // TODO: need to find the beacon that has expired and update its timestamp to currentTime
+          let newArr = array.push({ name: array[i].name, timestamp: currentTime });
+          console.log('newArr', newArr);
+          return newArr; 
+          // beacon has been triggered & timestamp < 10 min return the beacon without altering its time
+        } else if (array[i].name === beaconName && timeDifference < 600000) {
+          // return the current state 
+          console.log(`beacon has been less than 10 minutes ago array: ${array[i].name}... BeaconName ${beaconName}`)
+          console.log('else if', array)
+          return array;          
+          // return { name: beaconName, timestamp: array[i].timestamp };
+        } else {
+          // push it to the array then return 
+          // beacon has not been triggered yet; return beacon with the current time
+          console.log(`beacon hasn't been triggered: ${beaconName} currentTime: ${currentTime}`);
+          // TODO: send request to server to check for new promos
+          // TODO: need to find a way to remove the existing beacon from array 
+          
+          console.log('ARRAYYY', array)
+          let newArr = array;
+          // const filterArr = newArr.filter(duplicateBeacon => duplicateBeacon.name != beaconName)
+          newArr.push({ name: beaconName, timestamp: currentTime });
+          console.log('newArr', newArr);
+          return newArr; 
+          // return { name: beaconName, timestamp: currentTime };
+        }
       }
     }
   };
