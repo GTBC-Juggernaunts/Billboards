@@ -10,10 +10,12 @@ const styles = StyleSheet.create({
         backgroundColor: "#FFFFFF"
     },
     welcome: {
-        flex: 3,
+        height: 300,
         fontSize: 20,
         textAlign: "center",
-        marginTop: 100
+        marginBottom: 10,
+        backgroundColor: "#18FFFF",
+        height: 20
     },
     instructions: {
         textAlign: "center",
@@ -24,6 +26,11 @@ const styles = StyleSheet.create({
         flex: 3,
         textAlign: "center",
         marginTop: 100,
+    },
+    coupons:{
+        height: 300,
+        textAlign: "center",
+        height: 50,
     }
 });
 

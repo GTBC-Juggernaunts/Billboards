@@ -7,7 +7,7 @@ class Home extends Component {
         return (
             <View style={styles.container}>
                 <Text style={styles.logo}>This is the Home Screen</Text>
-                <Button onPress={ () => this.props.navigation.navigate('TestScreen')} title="Test Screen" />
+                <Button onPress={ () => this.props.navigation.navigate('BeaconScreen')} title="Coupons" />
             </View>
         )
     }
