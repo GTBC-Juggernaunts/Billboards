@@ -87,12 +87,14 @@ export default class App extends Component {
       contexts.forEach(nearbyBeacons => {
         // pass in beacons within range and beacon array in current state
         // TODO: need to add logic to handle an empty array being passed into checkBeacon()
-        const resultObj = this.checkBeacon(nearbyBeacons.attachments.beaconInfo,this.state.beacon);
+        const resultObj = this.checkBeacon(
+          nearbyBeacons.attachments.beaconInfo,
+          this.state.beacon
+        );
         console.log("resultObj", resultObj);
         // push beacons to the beaconArr
         // beaconArr.push(resultObj);
-        // beaconArr.push(resultObj);        
-        beaconArr = resultObj;        
+        beaconArr = resultObj;
         console.log("beaconArr", beaconArr);
       });
       // setState the beaconArr
@@ -101,58 +103,74 @@ export default class App extends Component {
       console.log(this.state);
     };
   };
-  // if it's more than 10 min that's when you 
+  // if it's more than 10 min that's when you
   checkBeacon = (beaconName, array) => {
-    // check for empty array 
+    // check for empty array
     // if its empty than return the new beacon
 
     // current time in milliseconds
     const currentTime = +new Date();
-    console.log("beaconName", beaconName)
-    console.log("ARRAY", array)
-    
+    console.log("beaconName argument: beacon within range", beaconName);
+    console.log("array argument: this.state.beacon arr", array);
 
-    if (array === undefined || array.length == 0) {
-      console.log('array is undefined', { name: beaconName, timestamp: currentTime })
-      const newArr = []
-      newArr.push({ name: beaconName, timestamp: currentTime });
-          console.log('undefined block, newArr', newArr);
-          return newArr; 
+    // temp array to handle pushing triggered beacons into
+    let tempArr = [];
+
+    // handler for when this.state.beacon array is empty
+    if (array === undefined || array.length === 0) {
+      console.log("tempArr: undefined block BEFORE push method", tempArr);
+      tempArr.push({ name: beaconName, timestamp: currentTime });
+      console.log("tempArr: undefined block AFTER push method", tempArr);
+      // TODO: API call here because no beacons have been triggered yet
+      return tempArr;
+    } else if (!array.includes({ name: beaconName })) { // TODO: find the kv pair that matches beaconName
+      // check if triggered beacon exists in current state
+      console.log("include method", array.includes({ name: beaconName }));
+      // push the beacon into the array and return
+      tempArr = array;
+      tempArr.push({ name: beaconName, timestamp: currentTime });
+      console.log("tempArr", tempArr);
+      return tempArr;
     } else {
       // loop through beacons to see if they've been discovered within 10 minutes
       for (let i = 0; i < array.length; i++) {
         // time difference from current time and last time the beacon was triggered
         let timeDifference = currentTime - array[i].timestamp;
-        console.log(`timeDifference: ${array[i].name}, ${timeDifference}`);
+        console.log(
+          `timeDifference: array[i].name:${
+            array[i].name
+          }, beaconName: ${beaconName} timeDifference${timeDifference}`
+        );
         // beacon has already been triggered & timestamp > 10 min
         if (array[i].name === beaconName && timeDifference > 600000) {
-          console.log(`Beacon Triggered: ${array[i].name} timestamp > 10 min: ${array[i].timestamp}`);
+          console.log(
+            `Beacon Triggered: ${array[i].name} timestamp > 10 min: ${
+              array[i].timestamp
+            }`
+          );
           // TODO: send request to server to check for new promos since 10 minutes have passed
           // TODO: need to find the beacon that has expired and update its timestamp to currentTime
-          let newArr = array.push({ name: array[i].name, timestamp: currentTime });
-          console.log('newArr', newArr);
-          return newArr; 
+          tempArr = array.push({
+            name: array[i].name,
+            timestamp: currentTime
+          });
+          // tempArr = [...new Set(tempArr.name)]
+          console.log("tempArr", tempArr);
+          return tempArr;
           // beacon has been triggered & timestamp < 10 min return the beacon without altering its time
-        } else if (array[i].name === beaconName && timeDifference < 600000) {
-          // return the current state 
-          console.log(`beacon has been less than 10 minutes ago array: ${array[i].name}... BeaconName ${beaconName}`)
-          console.log('else if', array)
-          return array;          
+        }
+        // if (array[i].name === beaconName && timeDifference < 600000)
+        else {
+          // return the current state
+          console.log(
+            `beacon has been less than 10 minutes ago array: ${
+              array[i].name
+            }... BeaconName ${beaconName}`
+          );
+          console.log("else if", array);
+          return array;
           // return { name: beaconName, timestamp: array[i].timestamp };
-        } else {
-          // push it to the array then return 
-          // beacon has not been triggered yet; return beacon with the current time
-          console.log(`beacon hasn't been triggered: ${beaconName} currentTime: ${currentTime}`);
-          // TODO: send request to server to check for new promos
-          // TODO: need to find a way to remove the existing beacon from array 
-          
-          console.log('ARRAYYY', array)
-          let newArr = array;
-          // const filterArr = newArr.filter(duplicateBeacon => duplicateBeacon.name != beaconName)
-          newArr.push({ name: beaconName, timestamp: currentTime });
-          console.log('newArr', newArr);
-          return newArr; 
-          // return { name: beaconName, timestamp: currentTime };
+          // TODO: beaconName !== array[i].name but does exist in the array
         }
       }
     }
@@ -165,6 +183,7 @@ export default class App extends Component {
         <Text style={styles.welcome}>
           Exclusive Promotions Coming Your Way!
         </Text>
+        {/* <Text>Beacon State: {this.state.beacon}</Text> */}
         <Text style={styles.welcome}>
           {this.state.connected ? this.state.data.coupon : "No Deals Near"}
         </Text>
