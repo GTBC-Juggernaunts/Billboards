@@ -16,3 +16,23 @@
   padding: 20px 20px 20px 70px;
   height: 100%;
 }
+
+.datepicker-date-display {
+  background-color: #424242;
+}
+
+.datepicker-table td.is-selected {
+  background-color: #607d8b;
+}
+
+.datepicker-table td.is-today {
+  color: #00b8d4;
+}
+
+.datepicker-cancel {
+  color: #607d8b;
+}
+
+.datepicker-done {
+  color: #607d8b;
+}

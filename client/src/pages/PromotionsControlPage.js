@@ -3,6 +3,9 @@ import PromotionForm from "../components/form/PromotionForm";
 import './page.css';
 import API from "../utils/API"
 import Table from "../components/table/Table";
+import moment from "moment";
+import M from "materialize-css/dist/js/materialize.min.js";
+import options from "materialize-css/dist/js/materialize.min.js";
 
 class PromotionsControlPage extends React.Component {
   state = {
@@ -22,7 +25,7 @@ class PromotionsControlPage extends React.Component {
             PromotionText: promo.PromotionText,
             BeaconTag: promo.BeaconTag,
             PreferenceGroup: promo.PreferenceGroup,
-            ExpirationDate: promo.ExpirationDate
+            ExpirationDate: moment(promo.ExpirationDate).format("dddd, MMMM Do YYYY")
           })
         });
 
@@ -34,6 +37,10 @@ class PromotionsControlPage extends React.Component {
 
   componentDidMount() {
     this.reloadData();
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.datepicker');
+      var instances = M.Datepicker.init(elems, options);
+    });
   }
 
   handleInputChange = event => {
@@ -57,6 +64,13 @@ class PromotionsControlPage extends React.Component {
           alert("An error has occurred. Please check the console.")
         }
       })
+      .then(
+        this.setState({
+          PromotionText: "",
+          BeaconTag: "",
+          PreferenceGroup: "",
+          ExpirationDate: "",
+        }))
       .then(this.reloadData());
   };
 

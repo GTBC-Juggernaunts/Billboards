@@ -31,6 +31,7 @@ const PromotionForm = props => {
                 label="Expiration Date"
                 value={props.ExpirationDate}
                 onChange={props.handleInputChange}
+                specialClass="datepicker"
               />
               <div className="col s12 submit-btn-container">
                 <button
