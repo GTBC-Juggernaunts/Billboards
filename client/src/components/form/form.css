@@ -14,5 +14,9 @@
 
 .submit-btn-container {
   text-align: right;
-  padding-right: 30px;
+  margin-bottom: 20px;
+}
+
+.row .top-panel {
+  margin-left: 0;
 }
