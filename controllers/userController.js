@@ -7,6 +7,15 @@ module.exports =  {
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
+  findAllusers: function(req,res) {
+    modules.User
+      .find()
+      .then(dbUser => {
+        console.log(dbUser);
+        res.json(dbUser);
+      })
+      .catch(err => res.status(422).json(err))
+  },
   create: function(req, res) {
     models.User
       .create(req.body)
