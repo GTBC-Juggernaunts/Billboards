@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
 import PromotionsControlPage from "./pages/PromotionsControlPage";
 import DashboardPage from "./pages/DashboardPage"
-import UsersPage from "./pages/UsersPage"
+import UsersControlPage from "./pages/UsersControlPage"
 
 
 class App extends Component {
@@ -25,7 +25,7 @@ class App extends Component {
               <Route exact path ="/" component={DashboardPage} />
               <Route exact path ="/dashboard" component={DashboardPage} />
               <Route exact path ="/promotions" component={PromotionsControlPage} />
-              <Route exact path ="/users" component={UsersPage} />
+              <Route exact path ="/users" component={UsersControlPage} />
             </Switch>
           </div>
 
