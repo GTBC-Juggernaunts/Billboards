@@ -30,7 +30,7 @@ const UserSchema = new Schema({
     required: true
   },
   // this will be later replaced by an array of tags
-  PreferenceTag: {
+  PreferenceGroup: {
     type: String,
     required: true
   },
