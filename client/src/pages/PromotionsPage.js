@@ -72,25 +72,26 @@ class PromotionsPage extends React.Component {
     return(
       <div className="mainContainer">
         <div className="row">
-            <div className="col s12">
-              <PromotionForm
-                handleInputChange={this.handleInputChange}
-                handleSubmit={this.handleSubmit}
-                PromotionText={this.state.PromotionText}
-                BeaconTag={this.state.BeaconTag}
-                PreferenceGroup={this.state.PreferenceGroup}
-                ExpirationDate={this.state.ExpirationDate}
+          <div className="col s6">
+            <PromotionForm
+              handleInputChange={this.handleInputChange}
+              handleSubmit={this.handleSubmit}
+              PromotionText={this.state.PromotionText}
+              BeaconTag={this.state.BeaconTag}
+              PreferenceGroup={this.state.PreferenceGroup}
+              ExpirationDate={this.state.ExpirationDate}
+            />
+          </div>
+          <div className="col s6">Something to go here...</div>
+          <div className="col s6">
+            <div className="container">
+              <Table
+                data={this.state.data}
+                columns={this.columns}
+                defaultPageSize={10}
               />
             </div>
-            <div className="col s6">
-              <div className="container">
-                <Table
-                  data={this.state.data}
-                  columns={this.columns}
-                  defaultPageSize={10}
-                />
-              </div>
-            </div>
+          </div>
         </div>
       </div>
     )

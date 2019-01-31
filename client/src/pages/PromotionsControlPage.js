@@ -84,17 +84,25 @@ class PromotionsControlPage extends React.Component {
   render() {
     return(
       <div className="mainContainer">
-            <div className="col s12 wide-container">
-              <PromotionForm
-                handleInputChange={this.handleInputChange}
-                handleSubmit={this.handleSubmit}
-                PromotionText={this.state.PromotionText}
-                BeaconTag={this.state.BeaconTag}
-                PreferenceGroup={this.state.PreferenceGroup}
-                ExpirationDate={this.state.ExpirationDate}
-              />
+        <div className="row">
+            <div className="wide-container">
+              <div className="col s6">
+                <PromotionForm
+                  handleInputChange={this.handleInputChange}
+                  handleSubmit={this.handleSubmit}
+                  PromotionText={this.state.PromotionText}
+                  BeaconTag={this.state.BeaconTag}
+                  PreferenceGroup={this.state.PreferenceGroup}
+                  ExpirationDate={this.state.ExpirationDate}
+                />
+              </div>
+              <div className="col s6">
+                Something to go here
+              </div>
           </div>
-          <div className="col s12 wide-container">
+        </div>
+        <div className="row">
+          <div className="wide-container">
             <div className="col s12">
               <Table
                 data={this.state.data}
@@ -103,6 +111,7 @@ class PromotionsControlPage extends React.Component {
               />
             </div>
           </div>
+        </div>
       </div>
     )
   }
