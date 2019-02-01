@@ -4,6 +4,10 @@
     <meta charset="utf-8" />
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.css'/>
+    <!-- Import Google Icon Font -->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Import materialize.css -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css" rel="stylesheet">
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
@@ -11,9 +15,10 @@
     <meta name="theme-color" content="#000000" />
     <!--
       manifest.json provides metadata used when your web app is added to the
-      homescreen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
+      home screen on Android. See https://developers.google.com/web/fundamentals/web-app-manifest/
     -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link href="https://fonts.googleapis.com/css?family=Arimo:400,700|Montserrat:400,600" rel="stylesheet">
     <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -32,12 +37,16 @@
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
-      You can add webfonts, meta tags, or analytics to this file.
+      You can add web fonts, meta tags, or analytics to this file.
       The build step will place the bundled scripts into the <body> tag.
 
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
   </body>
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js'></script>
+  <!-- Import jQuery before materialize.js -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+  <script src="./materializeinit.js"></script>
+
 </html>

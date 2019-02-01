@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+  background-color: #eceff1;
+  width: 100%;
+
+}
+
+.page-wrapper {
+
+}
+
+.sidebar-area {
+  height: 100vh;
+  position: fixed;
+  background-color: #424242;
+  color: #fff;
+  width: 50px;
+  z-index: 100;
+  top: 47px;
+}
+
+.sidebar-text {
+  color: #607d8b;
+  font-size: 24px;
+  writing-mode: vertical-lr;
+  text-orientation: sideways;
+  transform: rotate(180deg);
+  line-height: 46px;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
