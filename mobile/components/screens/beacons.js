@@ -112,7 +112,6 @@ export default class beacons extends Component {
     render() {
         return (   
             <View style={styles.container}>
-                <Text style={styles.welcome}>Welcome to Digital Billboards!</Text>
                 <CardList style={styles.coupons} cards={ cards }/>
             </View> 
         )

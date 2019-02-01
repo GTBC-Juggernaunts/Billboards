@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "#FFFFFF"
+        backgroundColor: "white"
     },
     welcome: {
         height: 300,
@@ -28,9 +28,10 @@ const styles = StyleSheet.create({
         marginTop: 100,
     },
     coupons:{
-        height: 300,
+        flex: .8,
         textAlign: "center",
         height: 50,
+        backgroundColor: "#18FFFF",
     }
 });
 
