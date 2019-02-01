@@ -3,7 +3,7 @@
 ## Badges
 
 Travis Status\
-[![Build Status](https://travis-ci.org/GTBC-Juggernaunts/project3.svg?branch=master)](https://travis-ci.org/GTBC-Juggernaunts/project3)
+[![Build Status](https://travis-ci.org/GTBC-Juggernaunts/Billboards.svg?branch=master)](https://travis-ci.org/GTBC-Juggernaunts/Billboards)
 
 ## Project Information
 
