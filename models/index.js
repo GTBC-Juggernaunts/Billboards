@@ -1,5 +1,5 @@
 module.exports = {
-  Beacon: require('./beacon'),
   Promotion: require('./promotion'),
-  User: require('./user')
+  User: require('./user'),
+  Redemption: require("./redemption")
 };

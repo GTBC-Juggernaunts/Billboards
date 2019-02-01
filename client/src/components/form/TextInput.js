@@ -10,6 +10,7 @@ const TextInput = props => {
           type="text"
           value={props.value}
           onChange={props.onChange}
+          className={props.specialClass}
         />
         <label htmlFor={props.name}>{props.label}</label>
       </div>

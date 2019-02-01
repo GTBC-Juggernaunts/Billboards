@@ -1,0 +1,15 @@
+.card-content {
+  display: flex;
+  justify-content: space-between;
+  text-align: left;
+}
+
+.KPI {
+  font-size: 32px;
+
+}
+
+.card .card-content p {
+  font-size: 12px;
+  color: #bdbdbd;
+}
