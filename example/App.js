@@ -116,6 +116,10 @@ export default class App extends Component {
     // temp array to handle pushing triggered beacons into
     let tempArr = [];
 
+    // return array of just beacon names from current state
+    const mapBeaconArr = array.map(beacon => beacon.name);
+    console.log("mapBeaconArr", mapBeaconArr);
+
     // handler for when this.state.beacon array is empty
     if (array === undefined || array.length === 0) {
       console.log("tempArr: undefined block BEFORE push method", tempArr);
@@ -123,9 +127,9 @@ export default class App extends Component {
       console.log("tempArr: undefined block AFTER push method", tempArr);
       // TODO: API call here because no beacons have been triggered yet
       return tempArr;
-    } else if (!array.includes({ name: beaconName })) { // TODO: find the kv pair that matches beaconName
+    } else if (!mapBeaconArr.includes(beaconName)) { // TODO: find the kv pair that matches beaconName
       // check if triggered beacon exists in current state
-      console.log("include method", array.includes({ name: beaconName }));
+      console.log("include method", mapBeaconArr.includes(beaconName));
       // push the beacon into the array and return
       tempArr = array;
       tempArr.push({ name: beaconName, timestamp: currentTime });
@@ -143,11 +147,7 @@ export default class App extends Component {
         );
         // beacon has already been triggered & timestamp > 10 min
         if (array[i].name === beaconName && timeDifference > 600000) {
-          console.log(
-            `Beacon Triggered: ${array[i].name} timestamp > 10 min: ${
-              array[i].timestamp
-            }`
-          );
+          console.log(`Beacon Triggered: ${array[i].name} timestamp > 10 min: ${array[i].timestamp}`);
           // TODO: send request to server to check for new promos since 10 minutes have passed
           // TODO: need to find the beacon that has expired and update its timestamp to currentTime
           tempArr = array.push({
@@ -162,11 +162,7 @@ export default class App extends Component {
         // if (array[i].name === beaconName && timeDifference < 600000)
         else {
           // return the current state
-          console.log(
-            `beacon has been less than 10 minutes ago array: ${
-              array[i].name
-            }... BeaconName ${beaconName}`
-          );
+          console.log(`beacon has been less than 10 minutes ago array: ${array[i].name}... BeaconName ${beaconName}`);
           console.log("else if", array);
           return array;
           // return { name: beaconName, timestamp: array[i].timestamp };
