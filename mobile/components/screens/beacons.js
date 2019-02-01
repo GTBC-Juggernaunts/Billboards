@@ -93,9 +93,102 @@ export default class beacons extends Component {
             }
         }
 
-        // Changing the beacon range
-        this.zone2.onChangeAction = context => {
-            console.log("zone2 onChange", context);
+        // onChange event gives you granular data about which exact beacons are in range
+        this.zone2.onChangeAction = contexts => {
+            console.log("zone2 onChange", contexts);
+            // beacon array to setState
+            let beaconArr = [];
+  
+            // TODO: need to add logic to handle if onChangeAction method triggers empty beacon
+            console.log("contexts length", contexts.length);
+            if (contexts.length !== 0) {
+                // loop through all beacons that are in the context array from the onChangeAction
+                contexts.forEach(nearbyBeacons => {
+                // pass in beacons within range and beacon array in current state
+                const resultObj = this.triggeredBeaconHandler(
+                nearbyBeacons.attachments.beaconInfo,
+                this.state.beacon
+                );
+                console.log("resultObj", resultObj);
+                // set result of triggeredBeaconHandler to beaconArr to setState
+                beaconArr = resultObj;
+                console.log("beaconArr", beaconArr);
+            });
+            // setState the beaconArr
+            this.setState({ beacon: beaconArr });
+            console.log(`state onChange`);
+            console.log(this.state);
+            } else {
+                // don't do anything since either a beacon most likely went out of range
+                console.log(
+                "no beacons in onChangeAction... current state:",
+                this.state.beacon
+                );
+            }   
+        };
+
+        // method to handle the state management of triggered beacons
+        triggeredBeaconHandler = (beaconName, array) => {
+          // current time in milliseconds
+          const currentTime = +new Date();
+          console.log("beaconName argument: beacon within range", beaconName);
+          console.log("array argument: this.state.beacon arr", array);
+      
+          // temp array to handle pushing triggered beacons into
+          let tempArr = [];
+      
+          // return array of just beacon names from current state
+          const mapBeaconArr = array.map(beacon => beacon.name);
+          console.log("mapBeaconArr", mapBeaconArr);
+      
+          // handler for when this.state.beacon array is empty
+          if (array === undefined || array.length === 0) {
+            console.log("tempArr: undefined block BEFORE push method", tempArr);
+            tempArr.push({ name: beaconName, timestamp: currentTime });
+            console.log("tempArr: undefined block AFTER push method...return tempArr...API CALL", tempArr);
+            // TODO: API call here because no beacons have been triggered yet
+            return tempArr;
+          } else if (!mapBeaconArr.includes(beaconName)) {
+            // if triggered beacon doesn't exist in current state
+            console.log("include method", mapBeaconArr.includes(beaconName));
+            // push the beacon into the array and return
+            tempArr = array;
+            tempArr.push({ name: beaconName, timestamp: currentTime });
+            console.log("tempArr", tempArr);
+            // TODO: send request to server since beacon hasn't been triggered
+            return tempArr;
+          } else {
+            // loop through beacons to see if they've been discovered within 10 minutes
+            for (let i = 0; i < array.length; i++) {
+              // time difference from current time and last time the beacon was triggered
+              let timeDifference = currentTime - array[i].timestamp;
+              console.log(
+                `timeDifference: array.name:${
+                  array[i].name
+                }, beaconName: ${beaconName} timeDifference${timeDifference}`
+              );
+              // beacon has already been triggered & timestamp > 10 min
+              if (array[i].name === beaconName && timeDifference > 600000) {
+                // TODO: send request to server to check for new promos since 10 minutes have passed
+                tempArr = array.push({
+                  name: array[i].name,
+                  timestamp: currentTime
+                });
+                console.log(
+                  "beacon triggered more than 10 minutes ago: return tempArr...API CALL",
+                  tempArr
+                );
+                return tempArr;
+              } else {
+                // beacon has been triggered & timestamp < 10 min return this.state.beacon array
+                console.log(
+                  "beacon has been triggered within 10 minutes: return array... NO API CALL",
+                  array
+                );
+                return array;
+              }
+            }
+          }
         };
 
         // Exit beacon range
@@ -106,9 +199,8 @@ export default class beacons extends Component {
                 this.setState({connected: false})
             }
         };
-
     };
-
+    
     render() {
         return (   
             <View style={styles.container}>
