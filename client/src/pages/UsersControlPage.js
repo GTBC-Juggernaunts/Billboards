@@ -1,9 +1,9 @@
 import React from "react";
 import API from "../utils/API";
-import userForm from "../components/form/UserForm";
+import UserForm from "../components/form/UserForm";
 import './page.css';
 import Table from "../components/table/Table";
-import moment from "moment";
+
 
 
 class UsersControlPage extends React.Component {
@@ -12,7 +12,7 @@ class UsersControlPage extends React.Component {
     Username: "",
     Name: "",
     Email: "",
-    PhoneNumber: 9999999999,
+    Phone: null,
     PreferenceGroup: ""
   };
 
@@ -26,7 +26,7 @@ class UsersControlPage extends React.Component {
             Username: user.Username,
             Name: user.Name,
             Email: user.Email,
-            PhoneNumber: user.PhoneNumber,
+            Phone: user.Phone,
             PreferenceGroup: user.PreferenceGroup
           })
         });
@@ -67,7 +67,7 @@ class UsersControlPage extends React.Component {
           Username: "",
           Name: "",
           Email: "",
-          PhoneNumber: 9999999999,
+          Phone: 9999999999,
           PreferenceGroup: ""
         }))
       .then(this.reloadData());
@@ -77,13 +77,43 @@ class UsersControlPage extends React.Component {
     { Header: 'Username', accessor: 'Username'},
     { Header: 'Name', accessor: 'Name'},
     { Header: 'Email', accessor: 'Email'},
-    { Header: 'PhoneNumber', accessor: 'PhoneNumber'},
+    { Header: 'PhoneNumber', accessor: 'Phone'},
     { Header: 'Preference Group', accessor: 'PreferenceGroup'}
   ];
 
   render() {
     return(
-      <div>Users Page Goes Here</div>
+      <div className="mainContainer">
+        <div className="row">
+          <div className="wide-container">
+            <div className="col s6">
+              <UserForm
+                handleInputChange={this.handleInputChange}
+                handleSubmit={this.handleSubmit}
+                Username={this.state.Username}
+                Name={this.state.Name}
+                Email={this.state.Email}
+                Phone={this.state.Phone}
+                PreferenceGroup={this.state.PreferenceGroup}
+              />
+            </div>
+            <div className="col s6">
+              Something to go here
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="wide-container">
+            <div className="col s12">
+              <Table
+                data={this.state.data}
+                columns={this.columns}
+                defaultPageSize={8}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
     )
   }
 }
