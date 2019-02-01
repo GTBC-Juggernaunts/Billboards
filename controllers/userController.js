@@ -7,8 +7,8 @@ module.exports =  {
       .then(dbUser => res.json(dbUser))
       .catch(err => res.status(422).json(err));
   },
-  findAllusers: function(req,res) {
-    modules.User
+  findAllUsers: function(req,res) {
+    models.User
       .find()
       .then(dbUser => {
         console.log(dbUser);

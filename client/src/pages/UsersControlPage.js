@@ -12,7 +12,7 @@ class UsersControlPage extends React.Component {
     Username: "",
     Name: "",
     Email: "",
-    Phone: null,
+    Phone: 0,
     PreferenceGroup: ""
   };
 

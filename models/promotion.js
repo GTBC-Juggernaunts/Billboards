@@ -1,5 +1,4 @@
 const mongoose = require("mongoose");
-const Beacon = require('./beacon');
 
 
 const Schema = mongoose.Schema;

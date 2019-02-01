@@ -23,11 +23,11 @@ const UserSchema = new Schema({
   },
   HashedPassword: {
     type: String,
-    required: true
+    required: false
   },
   Salt: {
     type: String,
-    required: true
+    required: false
   },
   // this will be later replaced by an array of tags
   PreferenceGroup: {
