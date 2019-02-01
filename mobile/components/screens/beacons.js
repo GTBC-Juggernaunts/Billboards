@@ -7,6 +7,9 @@ import { CardList } from 'react-native-card-list'
 // Beacon library
 import * as RNEP from "@estimote/react-native-proximity";
 
+// the IP address of the computer you are running server.js on with the PORT
+const localhost = "http://192.168.0.3:4000";
+
 // Coupon information for cards
 const cards = [
     {
@@ -28,6 +31,7 @@ const cards = [
         content: <Text> Deal #3 QR Code goes here </Text>
     },
 ]
+
 export default class beacons extends Component {
     constructor(props) {
         super(props);
@@ -69,6 +73,41 @@ export default class beacons extends Component {
                 RNEP.proximityObserver.startObservingZones([this.zone2]);
             }
         });
+
+        // Entering the beacons zone
+        this.zone2.onEnterActon = context => {
+            console.log('context', context);
+            console.log('beaconInfo', context.attachments.beaconInfo);
+            if (context.attachments.beaconInfo) {
+                axios.get(localhost + 'api/promos?' + context.attachments.beaconInfo)
+                .then(res=> {
+                    const data = res.data;
+                    console.log('coupon retrieved', data);
+                    this.setState({
+                        connected: true,
+                        data: {
+                            tag: data[0].BeaconTag,
+                            coupon: data[0].PromotionText,
+                        },
+                    });
+                });
+            }
+        }
+
+        // Changing the beacon range
+        this.zone2.onChangeAction = context => {
+            console.log("zone2 onChange", context);
+        };
+
+        // Exit beacon range
+        this.zone2.onExitAction = context => {
+            console.log("zone2 onExit", context);
+            console.log("beaconInfo", context.attachments.beaconInfo);
+            if (context.attachments.beaconInfo) {
+                this.setState({connected: false})
+            }
+        };
+
     };
 
     render() {

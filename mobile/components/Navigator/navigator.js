@@ -1,11 +1,11 @@
 import {
-    createTabNavigator,
+    createBottomTabNavigator,
     createAppContainer
 } from 'react-navigation';
 import Home from '../screens/home'
 import Beacon from '../screens/beacons'
 
-const navStack = createTabNavigator({
+const navStack = createBottomTabNavigator({
     HomeScreen: {
         screen: Home,
     },
