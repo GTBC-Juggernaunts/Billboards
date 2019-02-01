@@ -83,31 +83,36 @@ export default class App extends Component {
       // beacon array to setState
       let beaconArr = [];
 
-      // loop through all beacons that are in the context array from the onChangeAction
-      contexts.forEach(nearbyBeacons => {
-        // pass in beacons within range and beacon array in current state
-        // TODO: need to add logic to handle an empty array being passed into checkBeacon()
-        const resultObj = this.checkBeacon(
-          nearbyBeacons.attachments.beaconInfo,
+      // TODO: need to add logic to handle if onChangeAction method triggers empty beacon
+      console.log("contexts length", contexts.length);
+      if (contexts.length !== 0) {
+        // loop through all beacons that are in the context array from the onChangeAction
+        contexts.forEach(nearbyBeacons => {
+          // pass in beacons within range and beacon array in current state
+          const resultObj = this.triggeredBeaconHandler(
+            nearbyBeacons.attachments.beaconInfo,
+            this.state.beacon
+          );
+          console.log("resultObj", resultObj);
+          // set result of triggeredBeaconHandler to beaconArr to setState
+          beaconArr = resultObj;
+          console.log("beaconArr", beaconArr);
+        });
+        // setState the beaconArr
+        this.setState({ beacon: beaconArr });
+        console.log(`state onChange`);
+        console.log(this.state);
+      } else {
+        // don't do anything since either a beacon most likely went out of range
+        console.log(
+          "no beacons in onChangeAction... current state:",
           this.state.beacon
         );
-        console.log("resultObj", resultObj);
-        // push beacons to the beaconArr
-        // beaconArr.push(resultObj);
-        beaconArr = resultObj;
-        console.log("beaconArr", beaconArr);
-      });
-      // setState the beaconArr
-      this.setState({ beacon: beaconArr });
-      console.log(`state onChange`);
-      console.log(this.state);
+      }
     };
   };
-  // if it's more than 10 min that's when you
-  checkBeacon = (beaconName, array) => {
-    // check for empty array
-    // if its empty than return the new beacon
-
+  // method to handle the state management of triggered beacons
+  triggeredBeaconHandler = (beaconName, array) => {
     // current time in milliseconds
     const currentTime = +new Date();
     console.log("beaconName argument: beacon within range", beaconName);
@@ -124,16 +129,17 @@ export default class App extends Component {
     if (array === undefined || array.length === 0) {
       console.log("tempArr: undefined block BEFORE push method", tempArr);
       tempArr.push({ name: beaconName, timestamp: currentTime });
-      console.log("tempArr: undefined block AFTER push method", tempArr);
+      console.log("tempArr: undefined block AFTER push method...return tempArr...API CALL", tempArr);
       // TODO: API call here because no beacons have been triggered yet
       return tempArr;
-    } else if (!mapBeaconArr.includes(beaconName)) { // TODO: find the kv pair that matches beaconName
-      // check if triggered beacon exists in current state
+    } else if (!mapBeaconArr.includes(beaconName)) {
+      // if triggered beacon doesn't exist in current state
       console.log("include method", mapBeaconArr.includes(beaconName));
       // push the beacon into the array and return
       tempArr = array;
       tempArr.push({ name: beaconName, timestamp: currentTime });
       console.log("tempArr", tempArr);
+      // TODO: send request to server since beacon hasn't been triggered
       return tempArr;
     } else {
       // loop through beacons to see if they've been discovered within 10 minutes
@@ -141,32 +147,29 @@ export default class App extends Component {
         // time difference from current time and last time the beacon was triggered
         let timeDifference = currentTime - array[i].timestamp;
         console.log(
-          `timeDifference: array[i].name:${
+          `timeDifference: array.name:${
             array[i].name
           }, beaconName: ${beaconName} timeDifference${timeDifference}`
         );
         // beacon has already been triggered & timestamp > 10 min
         if (array[i].name === beaconName && timeDifference > 600000) {
-          console.log(`Beacon Triggered: ${array[i].name} timestamp > 10 min: ${array[i].timestamp}`);
           // TODO: send request to server to check for new promos since 10 minutes have passed
-          // TODO: need to find the beacon that has expired and update its timestamp to currentTime
           tempArr = array.push({
             name: array[i].name,
             timestamp: currentTime
           });
-          // tempArr = [...new Set(tempArr.name)]
-          console.log("tempArr", tempArr);
+          console.log(
+            "beacon triggered more than 10 minutes ago: return tempArr...API CALL",
+            tempArr
+          );
           return tempArr;
-          // beacon has been triggered & timestamp < 10 min return the beacon without altering its time
-        }
-        // if (array[i].name === beaconName && timeDifference < 600000)
-        else {
-          // return the current state
-          console.log(`beacon has been less than 10 minutes ago array: ${array[i].name}... BeaconName ${beaconName}`);
-          console.log("else if", array);
+        } else {
+          // beacon has been triggered & timestamp < 10 min return this.state.beacon array
+          console.log(
+            "beacon has been triggered within 10 minutes: return array... NO API CALL",
+            array
+          );
           return array;
-          // return { name: beaconName, timestamp: array[i].timestamp };
-          // TODO: beaconName !== array[i].name but does exist in the array
         }
       }
     }
@@ -179,7 +182,6 @@ export default class App extends Component {
         <Text style={styles.welcome}>
           Exclusive Promotions Coming Your Way!
         </Text>
-        {/* <Text>Beacon State: {this.state.beacon}</Text> */}
         <Text style={styles.welcome}>
           {this.state.connected ? this.state.data.coupon : "No Deals Near"}
         </Text>
