@@ -12,7 +12,8 @@
 # production
 /build
 .keystore
-grade.properties
+gradle.properties
+
 
 # misc
 .DS_Store
