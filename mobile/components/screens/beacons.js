@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Button, } from 'react-native';
 import styles from '../style'
-import Instructions from '../instructions'
 import { CardList } from 'react-native-card-list'
 
 // Beacon library
@@ -13,19 +12,19 @@ const localhost = "http://192.168.0.3:4000";
 // Coupon information for cards
 const cards = [
     {
-        id: 0,
+        id: "0",
         title: 'Deal #1',
         picture: require('../../assets/product.jpg'),
         content: <Text> Deal #1 QR Code goes here</Text>
     },
     {
-        id: 0,
+        id: "1",
         title: 'Deal #2',
         picture: require('../../assets/product.jpg'),
         content: <Text> Deal #2 QR Code goes here</Text>
     },
     {
-        id: 0,
+        id: "2",
         title: 'Deal #3',
         picture: require('../../assets/product.jpg'),
         content: <Text> Deal #3 QR Code goes here </Text>
@@ -114,8 +113,7 @@ export default class beacons extends Component {
         return (   
             <View style={styles.container}>
                 <Text style={styles.welcome}>Welcome to Digital Billboards!</Text>
-                <CardList style={styles.coupons} cards={cards}/>
-                <Button onPress={this.enterAction} title="Get Started" />
+                <CardList style={styles.coupons} cards={ cards }/>
             </View> 
         )
     }
