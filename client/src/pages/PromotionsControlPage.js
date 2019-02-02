@@ -7,6 +7,7 @@ import moment from "moment";
 import M from "materialize-css/dist/js/materialize.min.js";
 import options from "materialize-css/dist/js/materialize.min.js";
 
+
 class PromotionsControlPage extends React.Component {
   state = {
     data:[],
@@ -48,6 +49,7 @@ class PromotionsControlPage extends React.Component {
     this.setState({
       [name]: value
     });
+    console.log(this.state)
   };
 
   handleSubmit = event => {

@@ -16,6 +16,14 @@
   padding: 20px 20px 20px 70px;
 }
 
+.picker__date-display {
+  background-color: #424242;
+}
+
+.picker__weekday-display {
+  background-color: #616161;
+}
+
 .datepicker-date-display {
   background-color: #424242;
 }
@@ -24,8 +32,12 @@
   background-color: #607d8b;
 }
 
-.datepicker-table td.is-today {
-  color: #00b8d4;
+.picker__day--today {
+  color: #00b8d4 !important;
+}
+
+.picker__day--selected{
+  background-color: #607d8b !important;
 }
 
 .datepicker-cancel {

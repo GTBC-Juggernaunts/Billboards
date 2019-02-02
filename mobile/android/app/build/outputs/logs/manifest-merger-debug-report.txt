@@ -1,0 +1,248 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:1:1-26:12
+MERGED from [:react-native-gesture-handler] C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\node_modules\react-native-gesture-handler\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:@estimote_react-native-proximity] C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\node_modules\@estimote\react-native-proximity\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\4e5c0e6ac151ee089c72b4ee9ab45d82\AndroidManifest.xml:2:1-15:12
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\6ea151b86086dcd557a366885a28ea63\AndroidManifest.xml:17:1-22:12
+MERGED from [com.estimote:proximity-sdk:1.0.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\proximity-sdk-1.0.2.aar\fc529b883590ea894e5d6324e5caea9b\AndroidManifest.xml:2:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5306a14e8b0e4755ba2687e95c9e5a48\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\9b7220c3ef659f0488f252238445fd4b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\3753908476d51e3af4410a02c449b8e9\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\ab64496425a849f72bb9b59c3a8aef0f\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence.room:rxjava2:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\rxjava2-1.1.0.aar\b0f6ee139ab82facba14d7b367ff8918\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\edd3b960104d4b92b0205a827931e0ef\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\3cec3921f30be3762af5d33080e53bdd\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\4c5f86c281fd05e952918b53bc52ea27\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.0.aar\b7e030deba0496c37427ca271dc4183e\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.persistence:db:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\951a5f253f47a68d0adff58d0bbc9208\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\2fc1ddf997262bfaab7ccfd0d0fdbfee\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\ec0796d07e88ee83942df5444efc4efa\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\6eeec875cd6f927ccfaeb33100fa3145\AndroidManifest.xml:17:1-22:12
+MERGED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:2:1-25:12
+MERGED from [com.estimote:analytics-plugin:0.5.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\analytics-plugin-0.5.1.aar\514891241c76dac156b167510255e9d1\AndroidManifest.xml:2:1-14:12
+MERGED from [com.estimote:cloud-plugin:1.0.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\cloud-plugin-1.0.1.aar\fa48107824ef2b95f39e2d2fd1d1ec28\AndroidManifest.xml:2:1-18:12
+MERGED from [com.estimote:repository-plugin:0.5.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\repository-plugin-0.5.2.aar\299c91ecca5cb3b1e879f2f02a0f83fc\AndroidManifest.xml:2:1-11:12
+MERGED from [com.estimote:internal-plugins-api:0.22.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\internal-plugins-api-0.22.1.aar\aee907c31a0974451e9f5012a4d9cb1c\AndroidManifest.xml:2:1-14:12
+MERGED from [com.estimote:ketchup:0.5.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\ketchup-0.5.0.aar\85f4e440377b7805f24c081b693ceded\AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.fresco:fresco:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\fresco-1.10.0.aar\92ffcbafab8fca4366a7652655b0d5bf\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-1.10.0.aar\e1b149fd9fe09a1c80e1c7737f583cb5\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\drawee-1.10.0.aar\02f41983185585acd440690ea34cab5b\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\imagepipeline-1.10.0.aar\e6e0dbaf5fd46e1131dcb3dd3d47f100\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-1.10.0.aar\4b1d1b554cabf828ae5e6b36403b4347\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\16d8498399f5831d267485fe65437ab5\AndroidManifest.xml:2:1-13:12
+MERGED from [org.webkit:android-jsc:r174650] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\android-jsc-r174650.aar\12f3cc32dcddcd28fe64bcb8ab7694df\AndroidManifest.xml:1:1-3:12
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\rxandroid-2.0.1.aar\534ce1e11d3006a6338481d17f7e9452\AndroidManifest.xml:15:1-21:12
+MERGED from [com.wojtek.wawerek:skald-logcat-plugin:0.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\skald-logcat-plugin-0.1.0.aar\5749298461008966f84fbce9b48a0226\AndroidManifest.xml:2:1-11:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\40cefc5e6f574636611c39cd27a7961f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\fbcore-1.10.0.aar\8d08d8e6be764a247451262b48d0fc10\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:1:1-26:12
+INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:1:1-26:12
+	package
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:2:5-29
+		INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:4:5-67
+MERGED from [com.estimote:cloud-plugin:1.0.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\cloud-plugin-1.0.1.aar\fa48107824ef2b95f39e2d2fd1d1ec28\AndroidManifest.xml:12:5-67
+MERGED from [com.estimote:cloud-plugin:1.0.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\cloud-plugin-1.0.1.aar\fa48107824ef2b95f39e2d2fd1d1ec28\AndroidManifest.xml:12:5-67
+	android:name
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:4:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:5:5-77
+MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\4e5c0e6ac151ee089c72b4ee9ab45d82\AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\4e5c0e6ac151ee089c72b4ee9ab45d82\AndroidManifest.xml:11:5-78
+	android:name
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:5:22-75
+application
+ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:7:5-24:19
+MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\4e5c0e6ac151ee089c72b4ee9ab45d82\AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\4e5c0e6ac151ee089c72b4ee9ab45d82\AndroidManifest.xml:13:5-20
+MERGED from [com.estimote:proximity-sdk:1.0.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\proximity-sdk-1.0.2.aar\fc529b883590ea894e5d6324e5caea9b\AndroidManifest.xml:14:5-20:19
+MERGED from [com.estimote:proximity-sdk:1.0.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\proximity-sdk-1.0.2.aar\fc529b883590ea894e5d6324e5caea9b\AndroidManifest.xml:14:5-20:19
+MERGED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:18:5-23:19
+MERGED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:18:5-23:19
+MERGED from [com.estimote:analytics-plugin:0.5.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\analytics-plugin-0.5.1.aar\514891241c76dac156b167510255e9d1\AndroidManifest.xml:11:5-12:19
+MERGED from [com.estimote:analytics-plugin:0.5.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\analytics-plugin-0.5.1.aar\514891241c76dac156b167510255e9d1\AndroidManifest.xml:11:5-12:19
+MERGED from [com.estimote:cloud-plugin:1.0.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\cloud-plugin-1.0.1.aar\fa48107824ef2b95f39e2d2fd1d1ec28\AndroidManifest.xml:15:5-16:19
+MERGED from [com.estimote:cloud-plugin:1.0.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\cloud-plugin-1.0.1.aar\fa48107824ef2b95f39e2d2fd1d1ec28\AndroidManifest.xml:15:5-16:19
+MERGED from [com.estimote:internal-plugins-api:0.22.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\internal-plugins-api-0.22.1.aar\aee907c31a0974451e9f5012a4d9cb1c\AndroidManifest.xml:11:5-12:19
+MERGED from [com.estimote:internal-plugins-api:0.22.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\internal-plugins-api-0.22.1.aar\aee907c31a0974451e9f5012a4d9cb1c\AndroidManifest.xml:11:5-12:19
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\16d8498399f5831d267485fe65437ab5\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\16d8498399f5831d267485fe65437ab5\AndroidManifest.xml:11:5-20
+MERGED from [org.webkit:android-jsc:r174650] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\android-jsc-r174650.aar\12f3cc32dcddcd28fe64bcb8ab7694df\AndroidManifest.xml:2:3-17
+MERGED from [org.webkit:android-jsc:r174650] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\android-jsc-r174650.aar\12f3cc32dcddcd28fe64bcb8ab7694df\AndroidManifest.xml:2:3-17
+	android:label
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:9:7-39
+	android:icon
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:10:7-41
+	android:allowBackup
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:11:7-34
+	android:theme
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:12:7-38
+	android:name
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:8:7-38
+activity#com.billboards.MainActivity
+ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:13:7-22:18
+	android:label
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:15:9-41
+	android:windowSoftInputMode
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:17:9-51
+	android:configChanges
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:16:9-79
+	android:name
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:14:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:18:9-21:25
+action#android.intent.action.MAIN
+ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:19:13-65
+	android:name
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:19:21-62
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:20:13-73
+	android:name
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:20:23-70
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:23:7-84
+	android:name
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:23:17-81
+uses-sdk
+INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+MERGED from [:react-native-gesture-handler] C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\node_modules\react-native-gesture-handler\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\node_modules\react-native-gesture-handler\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:@estimote_react-native-proximity] C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\node_modules\@estimote\react-native-proximity\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:@estimote_react-native-proximity] C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\node_modules\@estimote\react-native-proximity\android\build\intermediates\manifests\full\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\4e5c0e6ac151ee089c72b4ee9ab45d82\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.57.4] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\react-native-0.57.4.aar\4e5c0e6ac151ee089c72b4ee9ab45d82\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\6ea151b86086dcd557a366885a28ea63\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:appcompat-v7:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\appcompat-v7-27.1.1.aar\6ea151b86086dcd557a366885a28ea63\AndroidManifest.xml:20:5-44
+MERGED from [com.estimote:proximity-sdk:1.0.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\proximity-sdk-1.0.2.aar\fc529b883590ea894e5d6324e5caea9b\AndroidManifest.xml:7:5-9:41
+MERGED from [com.estimote:proximity-sdk:1.0.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\proximity-sdk-1.0.2.aar\fc529b883590ea894e5d6324e5caea9b\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5306a14e8b0e4755ba2687e95c9e5a48\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\5306a14e8b0e4755ba2687e95c9e5a48\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\9b7220c3ef659f0488f252238445fd4b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:animated-vector-drawable:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\animated-vector-drawable-27.1.1.aar\9b7220c3ef659f0488f252238445fd4b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\3753908476d51e3af4410a02c449b8e9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-vector-drawable-27.1.1.aar\3753908476d51e3af4410a02c449b8e9\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\ab64496425a849f72bb9b59c3a8aef0f\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\ab64496425a849f72bb9b59c3a8aef0f\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:rxjava2:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\rxjava2-1.1.0.aar\b0f6ee139ab82facba14d7b367ff8918\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:rxjava2:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\rxjava2-1.1.0.aar\b0f6ee139ab82facba14d7b367ff8918\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\edd3b960104d4b92b0205a827931e0ef\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence.room:runtime:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\edd3b960104d4b92b0205a827931e0ef\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\3cec3921f30be3762af5d33080e53bdd\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\3cec3921f30be3762af5d33080e53bdd\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\4c5f86c281fd05e952918b53bc52ea27\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\4c5f86c281fd05e952918b53bc52ea27\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.0.aar\b7e030deba0496c37427ca271dc4183e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db-framework:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\db-framework-1.1.0.aar\b7e030deba0496c37427ca271dc4183e\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\951a5f253f47a68d0adff58d0bbc9208\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.persistence:db:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\db-1.1.0.aar\951a5f253f47a68d0adff58d0bbc9208\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\2fc1ddf997262bfaab7ccfd0d0fdbfee\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\2fc1ddf997262bfaab7ccfd0d0fdbfee\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\ec0796d07e88ee83942df5444efc4efa\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\runtime-1.1.1.aar\ec0796d07e88ee83942df5444efc4efa\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\6eeec875cd6f927ccfaeb33100fa3145\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\6eeec875cd6f927ccfaeb33100fa3145\AndroidManifest.xml:20:5-44
+MERGED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:7:5-9:41
+MERGED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:7:5-9:41
+MERGED from [com.estimote:analytics-plugin:0.5.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\analytics-plugin-0.5.1.aar\514891241c76dac156b167510255e9d1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.estimote:analytics-plugin:0.5.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\analytics-plugin-0.5.1.aar\514891241c76dac156b167510255e9d1\AndroidManifest.xml:7:5-9:41
+MERGED from [com.estimote:cloud-plugin:1.0.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\cloud-plugin-1.0.1.aar\fa48107824ef2b95f39e2d2fd1d1ec28\AndroidManifest.xml:7:5-9:41
+MERGED from [com.estimote:cloud-plugin:1.0.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\cloud-plugin-1.0.1.aar\fa48107824ef2b95f39e2d2fd1d1ec28\AndroidManifest.xml:7:5-9:41
+MERGED from [com.estimote:repository-plugin:0.5.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\repository-plugin-0.5.2.aar\299c91ecca5cb3b1e879f2f02a0f83fc\AndroidManifest.xml:7:5-9:41
+MERGED from [com.estimote:repository-plugin:0.5.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\repository-plugin-0.5.2.aar\299c91ecca5cb3b1e879f2f02a0f83fc\AndroidManifest.xml:7:5-9:41
+MERGED from [com.estimote:internal-plugins-api:0.22.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\internal-plugins-api-0.22.1.aar\aee907c31a0974451e9f5012a4d9cb1c\AndroidManifest.xml:7:5-9:41
+MERGED from [com.estimote:internal-plugins-api:0.22.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\internal-plugins-api-0.22.1.aar\aee907c31a0974451e9f5012a4d9cb1c\AndroidManifest.xml:7:5-9:41
+MERGED from [com.estimote:ketchup:0.5.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\ketchup-0.5.0.aar\85f4e440377b7805f24c081b693ceded\AndroidManifest.xml:7:5-9:41
+MERGED from [com.estimote:ketchup:0.5.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\ketchup-0.5.0.aar\85f4e440377b7805f24c081b693ceded\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.fresco:fresco:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\fresco-1.10.0.aar\92ffcbafab8fca4366a7652655b0d5bf\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\fresco-1.10.0.aar\92ffcbafab8fca4366a7652655b0d5bf\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-1.10.0.aar\e1b149fd9fe09a1c80e1c7737f583cb5\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-1.10.0.aar\e1b149fd9fe09a1c80e1c7737f583cb5\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\drawee-1.10.0.aar\02f41983185585acd440690ea34cab5b\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\drawee-1.10.0.aar\02f41983185585acd440690ea34cab5b\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\imagepipeline-1.10.0.aar\e6e0dbaf5fd46e1131dcb3dd3d47f100\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\imagepipeline-1.10.0.aar\e6e0dbaf5fd46e1131dcb3dd3d47f100\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-1.10.0.aar\4b1d1b554cabf828ae5e6b36403b4347\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-1.10.0.aar\4b1d1b554cabf828ae5e6b36403b4347\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\16d8498399f5831d267485fe65437ab5\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.5.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\soloader-0.5.1.aar\16d8498399f5831d267485fe65437ab5\AndroidManifest.xml:7:5-9:41
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\rxandroid-2.0.1.aar\534ce1e11d3006a6338481d17f7e9452\AndroidManifest.xml:19:5-43
+MERGED from [io.reactivex.rxjava2:rxandroid:2.0.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\rxandroid-2.0.1.aar\534ce1e11d3006a6338481d17f7e9452\AndroidManifest.xml:19:5-43
+MERGED from [com.wojtek.wawerek:skald-logcat-plugin:0.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\skald-logcat-plugin-0.1.0.aar\5749298461008966f84fbce9b48a0226\AndroidManifest.xml:7:5-9:41
+MERGED from [com.wojtek.wawerek:skald-logcat-plugin:0.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\skald-logcat-plugin-0.1.0.aar\5749298461008966f84fbce9b48a0226\AndroidManifest.xml:7:5-9:41
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\40cefc5e6f574636611c39cd27a7961f\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\40cefc5e6f574636611c39cd27a7961f\AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\fbcore-1.10.0.aar\8d08d8e6be764a247451262b48d0fc10\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\fbcore-1.10.0.aar\8d08d8e6be764a247451262b48d0fc10\AndroidManifest.xml:5:5-7:41
+INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml
+uses-permission#android.permission.BLUETOOTH
+ADDED from [com.estimote:proximity-sdk:1.0.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\proximity-sdk-1.0.2.aar\fc529b883590ea894e5d6324e5caea9b\AndroidManifest.xml:11:5-68
+MERGED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:12:5-68
+MERGED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:12:5-68
+	android:name
+		ADDED from [com.estimote:proximity-sdk:1.0.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\proximity-sdk-1.0.2.aar\fc529b883590ea894e5d6324e5caea9b\AndroidManifest.xml:11:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from [com.estimote:proximity-sdk:1.0.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\proximity-sdk-1.0.2.aar\fc529b883590ea894e5d6324e5caea9b\AndroidManifest.xml:12:5-74
+MERGED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:13:5-74
+MERGED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:13:5-74
+	android:name
+		ADDED from [com.estimote:proximity-sdk:1.0.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\proximity-sdk-1.0.2.aar\fc529b883590ea894e5d6324e5caea9b\AndroidManifest.xml:12:22-71
+receiver#com.estimote.proximity_sdk.api.TriggerBroadcastReceiver
+ADDED from [com.estimote:proximity-sdk:1.0.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\proximity-sdk-1.0.2.aar\fc529b883590ea894e5d6324e5caea9b\AndroidManifest.xml:15:9-19:20
+	android:name
+		ADDED from [com.estimote:proximity-sdk:1.0.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\proximity-sdk-1.0.2.aar\fc529b883590ea894e5d6324e5caea9b\AndroidManifest.xml:15:19-89
+intent-filter#action:name:com.estimote.proximity_trigger
+ADDED from [com.estimote:proximity-sdk:1.0.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\proximity-sdk-1.0.2.aar\fc529b883590ea894e5d6324e5caea9b\AndroidManifest.xml:16:13-18:29
+action#com.estimote.proximity_trigger
+ADDED from [com.estimote:proximity-sdk:1.0.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\proximity-sdk-1.0.2.aar\fc529b883590ea894e5d6324e5caea9b\AndroidManifest.xml:17:17-73
+	android:name
+		ADDED from [com.estimote:proximity-sdk:1.0.2] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\proximity-sdk-1.0.2.aar\fc529b883590ea894e5d6324e5caea9b\AndroidManifest.xml:17:25-70
+uses-permission-sdk-23#android.permission.ACCESS_COARSE_LOCATION
+ADDED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:16:5-88
+	android:name
+		ADDED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:16:29-85
+service#com.estimote.scanning_plugin.packet_provider.service.PacketProviderWrapperService
+ADDED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:19:9-22:40
+	android:enabled
+		ADDED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:21:13-35
+	android:exported
+		ADDED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:22:13-37
+	android:name
+		ADDED from [com.estimote:scanning-plugin:0.22.0] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\scanning-plugin-0.22.0.aar\51650fce95bed709ea8eaf22d338ac5c\AndroidManifest.xml:20:13-109
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.estimote:cloud-plugin:1.0.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\cloud-plugin-1.0.1.aar\fa48107824ef2b95f39e2d2fd1d1ec28\AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from [com.estimote:cloud-plugin:1.0.1] C:\Users\gross\.gradle\caches\transforms-1\files-1.1\cloud-plugin-1.0.1.aar\fa48107824ef2b95f39e2d2fd1d1ec28\AndroidManifest.xml:13:22-76
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+IMPLIED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_PHONE_STATE
+IMPLIED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc has a targetSdkVersion < 4
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+IMPLIED from C:\Users\gross\Desktop\GA-Tech Bootcamp\projects\project3\Billboards\mobile\android\app\src\main\AndroidManifest.xml:1:1-26:12 reason: org.webkit.android_jsc requested WRITE_EXTERNAL_STORAGE

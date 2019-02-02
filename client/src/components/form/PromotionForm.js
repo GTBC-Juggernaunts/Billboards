@@ -1,6 +1,9 @@
 import React from 'react';
-import TextInput from "./TextInput"
-import './form.css'
+import TextInput from "./TextInput";
+import DatePickerInput from "./DatePickerInput";
+import { Input } from 'react-materialize';
+import './form.css';
+import $ from 'jquery';
 
 const PromotionForm = props => {
   return (
@@ -26,13 +29,15 @@ const PromotionForm = props => {
             value={props.PreferenceGroup}
             onChange={props.handleInputChange}
           />
-          <TextInput
-            name="ExpirationDate"
-            label="Expiration Date"
-            value={props.ExpirationDate}
-            onChange={props.handleInputChange}
-            specialClass="datepicker"
-          />
+          <div className="col s12">
+            <Input
+              name="ExpirationDate"
+              label="Expiration Date"
+              value={props.ExpirationDate}
+              type="date"
+              onChange={props.handleInputChange}
+            />
+          </div>
             <div className="col s12 submit-btn-container">
               <button
                 className="btn grey darken-3 waves-effect waves-light"
