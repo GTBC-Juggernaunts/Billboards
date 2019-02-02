@@ -6,15 +6,17 @@ import Home from '../screens/home'
 import Beacon from '../screens/beacons'
 
 const navStack = createBottomTabNavigator({
-    HomeScreen: {
+    Home: {
         screen: Home,
     },
-    BeaconScreen: {
+    Coupons: {
         screen: Beacon,
     }
 },
 {
-    headerMode: "none"
+    tabBarOptions: {
+        activeBackgroundColor: "black",
+    }
 });
 
 const AppNavigator = createAppContainer(navStack);

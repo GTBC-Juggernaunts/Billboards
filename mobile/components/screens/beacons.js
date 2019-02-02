@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button, } from 'react-native';
 import styles from '../style'
-import { CardList } from 'react-native-card-list'
+import { CardList } from '../cardlist'
 
 // Beacon library
 import * as RNEP from "@estimote/react-native-proximity";
@@ -204,7 +204,8 @@ export default class beacons extends Component {
     render() {
         return (   
             <View style={styles.container}>
-                <CardList style={styles.coupons} cards={ cards }/>
+                <Button style={styles.logo} title="Get Started" onPress={ this.enterAction }>Get Started</Button>
+                <CardList style={styles.coupons} cards={ cards } />
             </View> 
         )
     }
