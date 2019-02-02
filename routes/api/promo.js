@@ -15,4 +15,10 @@ router
   .route('/:id')
   .delete(promotionController.remove);
 
+//
+
+router
+  .route('redeem')
+  .post(promotionController.redeemPromotion);
+
 module.exports = router;

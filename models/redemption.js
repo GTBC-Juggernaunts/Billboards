@@ -10,7 +10,7 @@ const RedemptionSchema = new Schema({
     required: true,
     default: Date.now
   },
-  PromotionRedeemed: {
+  PromotionId: {
     type: Schema.Types.ObjectId,
     ref: Promotion
   },

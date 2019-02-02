@@ -17,6 +17,15 @@ module.exports =  {
       .then(dbPromo => res.json(dbPromo))
       .catch(err => res.status(422).json(err));
   },
+  redeemPromotion: function(req, res) {
+    models.Promotion
+      .create(req.body)
+      .then(()=> {
+        models.User.findOneAndUpdate({ _id: req.body.UserId}, {$push : { CouponsRedeemed: req.body.PromotionId }}, { new: true })
+      })
+      .then(res.status(202))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     models.Promotion
       .create(req.body)
