@@ -39,11 +39,24 @@ export default class beacons extends Component {
     state = {
         connected: false
     }
+
+    componentDidMount() {
+        const { navigation } = this.props
+        this.focusListener = navigation.addListener('didFocus', () => {
+            console.log('We are listening');
+            this.enterAction();
+        })
+    };
+
+    componentWillUnmount() {
+        this.focusListener.remove();
+    }
     
     // Create a new zone 
     zone2 = new RNEP.ProximityZone(1, "DigitalBillboard");
     
     enterAction = () => {
+        console.log('Starting a enterAction');
 
         RNEP.locationPermission.request().then(permission => {
             
@@ -204,7 +217,6 @@ export default class beacons extends Component {
     render() {
         return (   
             <View style={styles.container}>
-                <Button style={styles.logo} title="Get Started" onPress={ this.enterAction }>Get Started</Button>
                 <CardList style={styles.coupons} cards={ cards } />
             </View> 
         )
