@@ -4,7 +4,6 @@ Travis Status\
 [![Build Status](https://travis-ci.org/GTBC-Juggernaunts/Billboards.svg?branch=master)](https://travis-ci.org/GTBC-Juggernaunts/Billboards)
 
 ## Project Information
-![Goals](./mobile/assets/goals.jpg)
 
 ![Goals](./mobile/assets/goals.jpg)
 
