@@ -9,17 +9,15 @@ class Home extends Component {
             <View style={ styles.container }>
                 <Text 
                     style={ styles.logo }>
-                    Welcome to Billboards
+                    Register as a new user
                 </Text>
                 <Button
                     buttonStyle={ styles.button }
                     title={'Login'}
-                    onPress={() => this.props.navigation.navigate('Login')}
                 />
                 <Button
                     buttonStyle={ styles.button }
-                    title={'Register'}
-                    onPress={() => this.props.navigation.navigate('Register') }
+                    title={'Register with a new page'}
                 />
             </View>
         )

@@ -4,28 +4,21 @@ import {
     createAppContainer
 } from 'react-navigation';
 import Home from '../screens/home/home'
+import Register from '../screens/home/register'
 import Beacon from '../screens/coupons/beacons'
 
-// Tabs on screen
-const navStack = createBottomTabNavigator({
-    Home: {
-        screen: Home,
-    },
-    Coupons: {
-        screen: Beacon,
-    }
-},
-{
-    tabBarOptions: {
-        activeBackgroundColor: "black",
-    }
-});
 
 // Screen within Tabs
 const homeStack = createStackNavigator({
     Home: {
         screen: Home
-    }
+    },
+    // Login: {
+    //     screen: Login
+    // },
+    Register: {
+        screen: Register
+    },
 }, {
     initialRouteName: 'Home',
     headerMode: "none",
@@ -39,13 +32,14 @@ const couponStack = createStackNavigator({
     headerMode: "none"
 });
 
+// Tab menu at bottom of the screen
 const AppNavigator = createAppContainer(createBottomTabNavigator({
     Home: homeStack,
     Coupons: couponStack,
 },
 {
     tabBarOptions: {
-        activeTintColor: 'red'
+        activeTintColor: 'red',
     }
 }));
 

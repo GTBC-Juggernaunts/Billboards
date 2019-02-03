@@ -14,19 +14,19 @@ const cards = [
     {
         id: "0",
         title: 'Deal #1',
-        picture: require('../../assets/product.jpg'),
+        picture: require('../../../assets/product.jpg'),
         content: <Text> Deal #1 QR Code goes here</Text>
     },
     {
         id: "1",
         title: 'Deal #2',
-        picture: require('../../assets/product.jpg'),
+        picture: require('../../../assets/product.jpg'),
         content: <Text> Deal #2 QR Code goes here</Text>
     },
     {
         id: "2",
         title: 'Deal #3',
-        picture: require('../../assets/product.jpg'),
+        picture: require('../../../assets/product.jpg'),
         content: <Text> Deal #3 QR Code goes here </Text>
     },
 ]
