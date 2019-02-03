@@ -13,7 +13,7 @@ class Home extends Component {
                 <Button 
                     style={styles.logo} 
                     title="Get Started" 
-                    onPress={ () => this.props.navigation.navigate('Coupons') }>
+                    onPress={ () => this.props.navigation.navigate('Promotions') }>
                     Get Started
                 </Button>
             </View>
