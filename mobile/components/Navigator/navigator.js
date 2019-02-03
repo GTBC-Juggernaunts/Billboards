@@ -1,24 +1,46 @@
 import {
     createBottomTabNavigator,
+    createStackNavigator,
     createAppContainer
 } from 'react-navigation';
-import Home from '../screens/home'
-import Beacon from '../screens/beacons'
+import Home from '../screens/home/home'
+import Register from '../screens/home/register'
+import Beacon from '../screens/coupons/beacons'
 
-const navStack = createBottomTabNavigator({
+
+// Screen within Tabs
+const homeStack = createStackNavigator({
     Home: {
-        screen: Home,
+        screen: Home
     },
-    Promotions: {
-        screen: Beacon,
+    // Login: {
+    //     screen: Login
+    // },
+    Register: {
+        screen: Register
+    },
+}, {
+    initialRouteName: 'Home',
+    headerMode: "none",
+});
+
+const couponStack = createStackNavigator({
+    Coupons: {
+        screen: Beacon
     }
+}, {
+    headerMode: "none"
+});
+
+// Tab menu at bottom of the screen
+const AppNavigator = createAppContainer(createBottomTabNavigator({
+    Home: homeStack,
+    Coupons: couponStack,
 },
 {
     tabBarOptions: {
-        activeBackgroundColor: "pink",
+        activeTintColor: 'red',
     }
-});
-
-const AppNavigator = createAppContainer(navStack);
+}));
 
 export default AppNavigator;
