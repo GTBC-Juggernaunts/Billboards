@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import { Button } from 'react-native-elements';
-import styles from '../style'
+import styles from '../../style'
 
 class Home extends Component {
     render() {

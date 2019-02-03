@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button, } from 'react-native';
-import styles from '../style'
-import { CardList } from '../cardlist'
+import styles from '../../style'
+import { CardList } from '../../cardlist'
 
 // Beacon library
 import * as RNEP from "@estimote/react-native-proximity";
