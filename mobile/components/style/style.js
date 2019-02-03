@@ -15,7 +15,6 @@ const styles = StyleSheet.create({
         textAlign: "center",
         marginBottom: 10,
         backgroundColor: "#18FFFF",
-        height: 20
     },
     instructions: {
         textAlign: "center",
@@ -23,16 +22,28 @@ const styles = StyleSheet.create({
         marginBottom: 5
     },
     logo:{
-        flex: 3,
         textAlign: "center",
         marginTop: 100,
+        marginBottom: 100,
     },
     coupons:{
         flex: .8,
         textAlign: "center",
         height: 50,
         backgroundColor: "#18FFFF",
+    },
+    input: {
+        width: 250,
+        height: 75,
+        justifyContent: 'center'
+    },
+    button: {
+        width: 250,
+        marginBottom: 20,
+        justifyContent: 'center',
+        backgroundColor: 'red',
     }
+
 });
 
 export default styles;

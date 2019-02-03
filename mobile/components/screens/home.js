@@ -1,21 +1,24 @@
 import React, { Component } from 'react';
-import { View, Text, Button, Image} from 'react-native';
+import { View, Text } from 'react-native';
+import { Button } from 'react-native-elements';
 import styles from '../style'
 
 class Home extends Component {
     render() {
         return (
-            <View style={styles.container}>
+            <View style={ styles.container }>
                 <Text 
-                    style={styles.logo}>
+                    style={ styles.logo }>
                     Welcome to Billboards
                 </Text>
-                <Button 
-                    style={styles.logo} 
-                    title="Get Started" 
-                    onPress={ () => this.props.navigation.navigate('Coupons') }>
-                    Get Started
-                </Button>
+                <Button
+                    buttonStyle={ styles.button }
+                    title={'Login'}
+                />
+                <Button
+                    buttonStyle={ styles.button }
+                    title={'Register'}
+                />
             </View>
         )
     }
