@@ -9,6 +9,7 @@
   "dependencies": {
     "@estimote/react-native-proximity": "^0.4.1",
     "axios": "^0.18.0",
+    "prop-types": "^15.6.2",
     "react": "16.6.0-alpha.8af6728",
     "react-native": "0.57.4",
     "react-native-card-list": "^0.1.0",

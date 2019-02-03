@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Button, } from 'react-native';
 import styles from '../style'
-import { CardList } from 'react-native-card-list'
+import { CardList } from '../cardlist'
 
 // Beacon library
 import * as RNEP from "@estimote/react-native-proximity";
@@ -39,11 +39,24 @@ export default class beacons extends Component {
     state = {
         connected: false
     }
+
+    componentDidMount() {
+        const { navigation } = this.props
+        this.focusListener = navigation.addListener('didFocus', () => {
+            console.log('We are listening');
+            this.enterAction();
+        })
+    };
+
+    componentWillUnmount() {
+        this.focusListener.remove();
+    }
     
     // Create a new zone 
     zone2 = new RNEP.ProximityZone(1, "DigitalBillboard");
     
     enterAction = () => {
+        console.log('Starting a enterAction');
 
         RNEP.locationPermission.request().then(permission => {
             
@@ -204,7 +217,7 @@ export default class beacons extends Component {
     render() {
         return (   
             <View style={styles.container}>
-                <CardList style={styles.coupons} cards={ cards }/>
+                <CardList style={styles.coupons} cards={ cards } />
             </View> 
         )
     }

@@ -1,11 +1,11 @@
-# [Billboards]
-
-## Badges
+# Billboards
 
 Travis Status\
 [![Build Status](https://travis-ci.org/GTBC-Juggernaunts/Billboards.svg?branch=master)](https://travis-ci.org/GTBC-Juggernaunts/Billboards)
 
 ## Project Information
+
+![Goals](./mobile/assets/goals.jpg)
 
 ## Project Description
 
@@ -14,6 +14,12 @@ Billboards is designed with the customers in mind first by bringing digital adve
 Often times as consumers we will walk right pass stores that may have things on sale and not know simply because we were looking the other way, distracted, etc. With Billboards, customers will no longer miss out on a promotion for a given store if with range of a the beacon.
 
 Quality of life improvements will be made to the shopper along with value in revenue will be generated for a given shop  or owner of the program at a given shopping center.
+
+## Built With
+
+* [React Native](https://www.npmjs.com/package/react-native-cli) - Native rendering mobile apps
+* [React Navigation](https://www.npmjs.com/package/react-navigation) - Create navigable pages within a mobile app
+* [Axios](https://www.npmjs.com/package/axios) - Promise based HTTP client for the browser and node.js
 
 ## Members
 
