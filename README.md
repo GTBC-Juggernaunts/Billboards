@@ -5,6 +5,8 @@ Travis Status\
 
 ## Project Information
 
+![Goals](./mobile/assets/goals.jpg)
+
 ## Project Description
 
 Billboards is designed with the customers in mind first by bringing digital advertising straight to their mobile devices. The ideal audience is for mall and brick & mortars to onboard / register stores or products and using beacon technology notify customers within reach of products on sale at a given store.
