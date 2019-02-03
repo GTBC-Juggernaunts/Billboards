@@ -9,13 +9,13 @@ const navStack = createBottomTabNavigator({
     Home: {
         screen: Home,
     },
-    Coupons: {
+    Promotions: {
         screen: Beacon,
     }
 },
 {
     tabBarOptions: {
-        activeBackgroundColor: "black",
+        activeBackgroundColor: "pink",
     }
 });
 
