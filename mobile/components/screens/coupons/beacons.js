@@ -7,7 +7,7 @@ import { CardList } from '../../cardlist'
 import * as RNEP from "@estimote/react-native-proximity";
 
 // the IP address of the computer you are running server.js on with the PORT
-const localhost = "http://192.168.0.3:4000";
+const localhost = "https://billboard-platform.herokuapp.com";
 
 // Coupon information for cards
 const cards = [
@@ -37,7 +37,8 @@ export default class beacons extends Component {
     }
     
     state = {
-        connected: false
+        connected: false,
+        beacon: []
     }
 
     componentDidMount() {
@@ -88,7 +89,7 @@ export default class beacons extends Component {
 
         // Entering the beacons zone
         this.zone2.onEnterActon = context => {
-            console.log('context', context);
+            console.log('context: onEnterAction', context);
             console.log('beaconInfo', context.attachments.beaconInfo);
             if (context.attachments.beaconInfo) {
                 axios.get(localhost + 'api/promos?' + context.attachments.beaconInfo)
@@ -118,7 +119,7 @@ export default class beacons extends Component {
                 // loop through all beacons that are in the context array from the onChangeAction
                 contexts.forEach(nearbyBeacons => {
                 // pass in beacons within range and beacon array in current state
-                const resultObj = this.triggeredBeaconHandler(
+                const resultObj = triggeredBeaconHandler(
                 nearbyBeacons.attachments.beaconInfo,
                 this.state.beacon
                 );
