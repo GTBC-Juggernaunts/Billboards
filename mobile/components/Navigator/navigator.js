@@ -11,13 +11,13 @@ import Beacon from '../screens/coupons/beacons'
 // Screen within Tabs
 const homeStack = createStackNavigator({
     Home: {
-        screen: Home
+        screen: Home,
     },
     // Login: {
     //     screen: Login
     // },
     Register: {
-        screen: Register
+        screen: Register,
     },
 }, {
     initialRouteName: 'Home',
@@ -34,13 +34,16 @@ const couponStack = createStackNavigator({
 
 // Tab menu at bottom of the screen
 const AppNavigator = createAppContainer(createBottomTabNavigator({
-    Home: homeStack,
-    Coupons: couponStack,
-},
-{
-    tabBarOptions: {
-        activeTintColor: 'red',
-    }
-}));
+        Home: homeStack,
+        Coupons: couponStack,
+    },
+        {
+            swipeEnabled: false, 
+            tabBarOptions: {
+                activeTintColor: 'red',
+            },
+        }
+    )
+);
 
 export default AppNavigator;
