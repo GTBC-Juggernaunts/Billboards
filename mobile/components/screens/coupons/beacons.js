@@ -9,9 +9,9 @@ import API from '../../../Utils/API/api';
 import * as RNEP from '@estimote/react-native-proximity';
 
 export default class beacons extends Component {
-    constructor(props) {
-      super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
   state = {
     connected: false,
@@ -24,6 +24,14 @@ export default class beacons extends Component {
     this.focusListener = navigation.addListener('didFocus', () => {
       console.log('We are listening');
       this.enterAction();
+      // TODO: function to render promo cards
+      // 2 ways to get the promos tab
+      //    1- 'get started' button on home tab switches screens on press then creates proximity sensor
+      // if user is close to beacon it will render promos
+      // else it won't do anything
+      //    2- if user directly presses the coupons tab it will create the proximity senor
+      // if user is close to beacon it will render promos
+      // else it won't do anything
     });
   }
 
@@ -120,6 +128,9 @@ export default class beacons extends Component {
         );
       }
     };
+    sayHello = (id) => {
+        console.log(`button pressed and my id is: ${id}`)
+    }
 
     // load cards with promos
     loadPromoCards = () => {
@@ -131,7 +142,13 @@ export default class beacons extends Component {
               id: promo._id,
               title: promo.PromotionText,
               picture: require('../../../assets/product.jpg'),
-              content: <Text>{promo.PreferenceGroup}</Text>
+              content: (
+                <Button
+                  buttonStyle={styles.button}
+                  title={'Redeem'}
+                  onPress={this.sayHello(promo._id)}
+                />
+              )
             });
           });
           // setState promo data into cards
