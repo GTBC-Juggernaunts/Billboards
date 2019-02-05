@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
+import { Button } from 'react-native-elements';
 import styles from '../../style';
 import { CardList } from '../../cardlist';
+import DropdownAlert from 'react-native-dropdownalert';
 // mongo db
 import API from '../../../Utils/API/api';
 
@@ -128,9 +130,22 @@ export default class beacons extends Component {
         );
       }
     };
-    sayHello = (id) => {
-        console.log(`button pressed and my id is: ${id}`)
-    }
+
+    // redeem promo button on cards
+    redeemPromo = (promoId, userId, promoDescription) => {
+      const promotion = { PromotionId: promoId, UserId: userId };
+      API.redeemPromotion(promotion)
+        .then(res => {
+          console.log('redeemPromotion response', res);
+          // alert(`${promoDescription} Has Been Redeemed`);
+          this.dropdown.alertWithType(
+            'success',
+            'Promotion Successfully Redeemed',
+            `${promoDescription}`
+          );
+        })
+        .catch(err => console.log('err', err));
+    };
 
     // load cards with promos
     loadPromoCards = () => {
@@ -138,15 +153,24 @@ export default class beacons extends Component {
         .then(res => {
           let promoCard = [];
           res.data.forEach(promo => {
+            // get correct promo card image
+            let promoCardImage = this.chooseCardImage(promo.PreferenceGroup);
+            console.log('promoCardImage', promoCardImage);
             promoCard.push({
               id: promo._id,
               title: promo.PromotionText,
-              picture: require('../../../assets/product.jpg'),
+              picture: require(promoCardImage),
               content: (
                 <Button
                   buttonStyle={styles.button}
                   title={'Redeem'}
-                  onPress={this.sayHello(promo._id)}
+                  onPress={() =>
+                    redeemPromo(
+                      promo._id,
+                      '5c58e0a81fd72e002a0d8f43',
+                      promo.PromotionText
+                    )
+                  }
                 />
               )
             });
@@ -157,6 +181,19 @@ export default class beacons extends Component {
           });
         })
         .catch(err => console.log('err getPromos', err));
+    };
+
+    // choose stock promo card image
+    // TODO: figure out why this image switch case is not rendering correct image locally
+    chooseCardImage = category => {
+      switch (category) {
+        case 'footwear':
+          return '../../../assets/product.jpg';
+        case 'food':
+          return '../../../assets/food.jpeg';
+        // default:
+        //   return '../../../assets/goals.jpg';
+      }
     };
 
     // method to handle the state management of triggered beacons
@@ -240,6 +277,7 @@ export default class beacons extends Component {
     return (
       <View style={styles.container}>
         <CardList style={styles.coupons} cards={this.state.cards} />
+        <DropdownAlert ref={ref => (this.dropdown = ref)} />
       </View>
     );
   }
