@@ -4,7 +4,7 @@ import { Button } from 'react-native-elements';
 import styles from '../../style';
 import { CardList } from '../../cardlist';
 import DropdownAlert from 'react-native-dropdownalert';
-// mongo db
+
 import API from '../../../Utils/API/api';
 
 // Beacon library

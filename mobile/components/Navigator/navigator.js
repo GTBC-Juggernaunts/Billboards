@@ -6,16 +6,19 @@ import {
 import Home from '../screens/home/home'
 import Register from '../screens/home/register'
 import Beacon from '../screens/coupons/beacons'
+import { Icon } from 'react-native-vector-icons/FontAwesome';
 
 
 // Screen within Tabs
 const homeStack = createStackNavigator({
     Home: {
         screen: Home,
+        navigationOptions: () => ({
+            tabBarIcon: () => {
+                <Icon name="home" size={20} />
+            }
+        })
     },
-    // Login: {
-    //     screen: Login
-    // },
     Register: {
         screen: Register,
     },
@@ -26,7 +29,12 @@ const homeStack = createStackNavigator({
 
 const couponStack = createStackNavigator({
     Coupons: {
-        screen: Beacon
+        screen: Beacon,
+        navigationOptions: () => ({
+            tabBarIcon: () => {
+                <Icon name="shopping-bag" size={20} />
+            }
+        })
     }
 }, {
     headerMode: "none"
@@ -40,6 +48,7 @@ const AppNavigator = createAppContainer(createBottomTabNavigator({
         {
             swipeEnabled: false, 
             tabBarOptions: {
+                showLabel: false,
                 activeTintColor: 'red',
             },
         }
