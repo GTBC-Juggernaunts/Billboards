@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text } from 'react-native';
+import { Button } from 'react-native-elements';
 import styles from '../../style';
 import { CardList } from '../../cardlist';
+import DropdownAlert from 'react-native-dropdownalert';
 // mongo db
 import API from '../../../Utils/API/api';
 
@@ -9,9 +11,9 @@ import API from '../../../Utils/API/api';
 import * as RNEP from '@estimote/react-native-proximity';
 
 export default class beacons extends Component {
-    constructor(props) {
-      super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
   state = {
     connected: false,
@@ -24,6 +26,14 @@ export default class beacons extends Component {
     this.focusListener = navigation.addListener('didFocus', () => {
       console.log('We are listening');
       this.enterAction();
+      // TODO: function to render promo cards
+      // 2 ways to get the promos tab
+      //    1- 'get started' button on home tab switches screens on press then creates proximity sensor
+      // if user is close to beacon it will render promos
+      // else it won't do anything
+      //    2- if user directly presses the coupons tab it will create the proximity senor
+      // if user is close to beacon it will render promos
+      // else it won't do anything
     });
   }
 
@@ -121,17 +131,48 @@ export default class beacons extends Component {
       }
     };
 
+    // redeem promo button on cards
+    redeemPromo = (promoId, userId, promoDescription) => {
+      const promotion = { PromotionId: promoId, UserId: userId };
+      API.redeemPromotion(promotion)
+        .then(res => {
+          console.log('redeemPromotion response', res);
+          // alert(`${promoDescription} Has Been Redeemed`);
+          this.dropdown.alertWithType(
+            'success',
+            'Promotion Successfully Redeemed',
+            `${promoDescription}`
+          );
+        })
+        .catch(err => console.log('err', err));
+    };
+
     // load cards with promos
     loadPromoCards = () => {
       API.getPromotions()
         .then(res => {
           let promoCard = [];
           res.data.forEach(promo => {
+            // get correct promo card image
+            let promoCardImage = this.chooseCardImage(promo.PreferenceGroup);
+            console.log('promoCardImage', promoCardImage);
             promoCard.push({
               id: promo._id,
               title: promo.PromotionText,
-              picture: require('../../../assets/product.jpg'),
-              content: <Text>{promo.PreferenceGroup}</Text>
+              picture: require(promoCardImage),
+              content: (
+                <Button
+                  buttonStyle={styles.button}
+                  title={'Redeem'}
+                  onPress={() =>
+                    redeemPromo(
+                      promo._id,
+                      '5c58e0a81fd72e002a0d8f43',
+                      promo.PromotionText
+                    )
+                  }
+                />
+              )
             });
           });
           // setState promo data into cards
@@ -140,6 +181,19 @@ export default class beacons extends Component {
           });
         })
         .catch(err => console.log('err getPromos', err));
+    };
+
+    // choose stock promo card image
+    // TODO: figure out why this image switch case is not rendering correct image locally
+    chooseCardImage = category => {
+      switch (category) {
+        case 'footwear':
+          return '../../../assets/product.jpg';
+        case 'food':
+          return '../../../assets/food.jpeg';
+        // default:
+        //   return '../../../assets/goals.jpg';
+      }
     };
 
     // method to handle the state management of triggered beacons
@@ -223,6 +277,7 @@ export default class beacons extends Component {
     return (
       <View style={styles.container}>
         <CardList style={styles.coupons} cards={this.state.cards} />
+        <DropdownAlert ref={ref => (this.dropdown = ref)} />
       </View>
     );
   }
