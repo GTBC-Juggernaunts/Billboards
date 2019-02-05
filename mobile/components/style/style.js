@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     input: {
         width: 250,
         height: 75,
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     button: {
         width: 250,

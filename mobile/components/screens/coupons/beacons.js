@@ -159,7 +159,7 @@ export default class beacons extends Component {
             promoCard.push({
               id: promo._id,
               title: promo.PromotionText,
-              picture: require(promoCardImage),
+              picture: require('../../../assets/product.jpg'),
               content: (
                 <Button
                   buttonStyle={styles.button}

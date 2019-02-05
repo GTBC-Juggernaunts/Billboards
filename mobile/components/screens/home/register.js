@@ -1,67 +1,64 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
-import { Input, Text, Button } from 'react-native-elements';
+import { KeyboardAvoidingView } from 'react-native'
+import { Input, Text, Button } from 'react-native-elements'; 
 import styles from '../../style'
+import api from '../../../Utils/API/api';
 
 class Home extends Component {
 
     state = {
-        user: {
-
-        }
-    }
+        Email: '',
+        Name: 'Test Account',
+        Phone: '3105552121',
+        PreferenceGroup: 'shoes',
+        Username: '',
+    };
 
     _handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state.user);
+        let user = this.state
+        console.log(user);
+        api.createUser(user)
+        .then(res => {
+            console.log(res);
+            console.log(res.data);
+        })
+        .catch(err => {
+            console.log(`Error`, err);
+        })
     }
 
     render() {
         return (
-            <View style={ styles.container }>
-                <Text h3 style={ styles.header }>
-                    Billboards Registration
-                </Text>
-                <Input
-                    containerStyle={ styles.input }
-                    placeholder='Username'
-                    value={ this.state.user.username }
-                    onChangeText={ (value) => this.setState.username = value }
-                />
-                <Input
-                    containerStyle={ styles.input }
-                    placeholder='Name'
-                    value={ this.state.user.name }
-                    onChangeText={ (value) => this.setState.name = value }
-                />
-                <Input
-                    containerStyle={ styles.input }
-                    placeholder='Email'
-                    value={ this.state.user.email }
-                    onChangeText={ (value) => this.setState.email = value }
-                />
-                <Input
-                    containerStyle={ styles.input }
-                    placeholder='Phone Number'
-                    value={ this.state.user.phoneNumber }
-                    onChangeText={ (value) => this.setState.phoneNumber = value }
-                />
-                <Input
-                    containerStyle={ styles.input }
-                    placeholder='Preference Group'
-                    value={ this.state.user.preferenceGroup }
-                    onChangeText={ (value) => this.setState.preferenceGroup = value }
-                />
-                <Text style={ styles.text }>
-                    By clicking submit, you are have read our Privacy Policy and agree to the Terms of Service.
-                </Text>
-                <Button
-                    buttonStyle={ styles.button }
-                    containerStyle = { styles.buttonContainer }
-                    title="Register"
-                    onPress={ this._handleSubmit }
-                />
-            </View>
+            <KeyboardAvoidingView 
+                style={ styles.container }
+                behavior={"padding"}
+            >
+                    <Text h3 style={ styles.header }>
+                        Billboards Registration
+                    </Text>
+                    <Input
+                        containerStyle={ styles.input }
+                        placeholder='Username'
+                        onChangeText={ (value) => this.setState({ Username: value}) }
+                        value={ this.state.username }
+                    />
+                    <Input
+                        containerStyle={ styles.input }
+                        placeholder='Email'
+                        onChangeText={ (value) => this.setState({ Email: value}) }
+                        value={ this.state.email }
+                    />
+                    <Text style={ styles.text }>
+                        By clicking submit, you are have read our Privacy Policy and agree to the Terms of Service.
+                    </Text>
+                    <Button
+                        buttonStyle={ styles.button }
+                        containerStyle = { styles.buttonContainer }
+                        title="Register"
+                        onPress={ this._handleSubmit }
+                    />
+            </KeyboardAvoidingView>
         )
     }
 };
