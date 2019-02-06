@@ -4,7 +4,7 @@ import { Button } from 'react-native-elements';
 import styles from '../../style';
 import { CardList } from '../../cardlist';
 import DropdownAlert from 'react-native-dropdownalert';
-// mongo db
+
 import API from '../../../Utils/API/api';
 
 // Beacon library
@@ -159,7 +159,7 @@ export default class beacons extends Component {
             promoCard.push({
               id: promo._id,
               title: promo.PromotionText,
-              picture: require(promoCardImage),
+              picture: require('../../../assets/product.jpg'),
               content: (
                 <Button
                   buttonStyle={styles.button}
