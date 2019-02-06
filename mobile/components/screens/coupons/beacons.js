@@ -154,12 +154,14 @@ export default class beacons extends Component {
           let promoCard = [];
           res.data.forEach(promo => {
             // get correct promo card image
-            let promoCardImage = this.chooseCardImage(promo.PreferenceGroup);
-            console.log('promoCardImage', promoCardImage);
+            // TODO: implement function for dynamically generating promo card image
+            // let promoCardImage = this.chooseCardImage(promo.PreferenceGroup);
+            // console.log('promoCardImage', promoCardImage);
             promoCard.push({
               id: promo._id,
               title: promo.PromotionText,
-              picture: require('../../../assets/product.jpg'),
+              picture: require('../../../assets/food.jpeg'),
+              // picture: require(promoCardImage),
               content: (
                 <Button
                   buttonStyle={styles.button}
