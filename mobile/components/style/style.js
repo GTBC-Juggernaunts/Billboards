@@ -9,6 +9,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         backgroundColor: "white"
     },
+    text: {
+        width: 250,
+        fontSize: 12,
+        textAlign: "center",
+    },
     welcome: {
         height: 300,
         fontSize: 20,
@@ -32,18 +37,24 @@ const styles = StyleSheet.create({
         height: 50,
         backgroundColor: "#18FFFF",
     },
+    header: {
+        textAlign: "center",
+    },
     input: {
         width: 250,
         height: 75,
-        justifyContent: 'center'
+        justifyContent: 'center',
     },
     button: {
         width: 250,
         marginBottom: 20,
         justifyContent: 'center',
         backgroundColor: 'red',
-    }
-
+    },
+    buttonContainer: {
+        position: "absolute",
+        bottom: 0,
+    },
 });
 
 export default styles;

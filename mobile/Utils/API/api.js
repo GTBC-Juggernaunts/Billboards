@@ -8,5 +8,8 @@ export default {
     },
     redeemPromotion: function(promotion) {
         return axios.post(`${server}api/promo/redeem`, promotion);
+    },
+    createUser: (user) => {
+        return axios.post(`${server}api/user`, user);
     }
 };
