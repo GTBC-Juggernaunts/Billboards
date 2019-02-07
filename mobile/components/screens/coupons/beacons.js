@@ -78,22 +78,7 @@ export default class beacons extends Component {
     // Entering the beacons zone
     this.zone2.onEnterActon = context => {
       console.log('context: onEnterAction', context);
-      console.log('beaconInfo', context.attachments.beaconInfo);
-      if (context.attachments.beaconInfo) {
-        axios
-          .get(localhost + 'api/promos?' + context.attachments.beaconInfo)
-          .then(res => {
-            const data = res.data;
-            console.log('coupon retrieved', data);
-            this.setState({
-              connected: true,
-              data: {
-                tag: data[0].BeaconTag,
-                coupon: data[0].PromotionText
-              }
-            });
-          });
-      }
+      console.log('beaconInfo onEnterAction', context.attachments.beaconInfo);
     };
 
     // onChange event gives you granular data about which exact beacons are in range
@@ -154,14 +139,17 @@ export default class beacons extends Component {
           let promoCard = [];
           res.data.forEach(promo => {
             // get correct promo card image
-            // TODO: implement function for dynamically generating promo card image
-            // let promoCardImage = this.chooseCardImage(promo.PreferenceGroup);
-            // console.log('promoCardImage', promoCardImage);
+            // TODO: implement function for dynamically generating promo card image            
+            let promoCardImage = chooseCardImage(promo.PreferenceGroup);
+            console.log('preferenceGroup', promo.PreferenceGroup)
+            // const formatPromoCardImage = promoCardImage.toString();
+            console.log('typeOf', typeof promoCardImage)
+            console.log('promoCardImage', promoCardImage);
             promoCard.push({
               id: promo._id,
               title: promo.PromotionText,
-              picture: require('../../../assets/food.jpeg'),
-              // picture: require(promoCardImage),
+              // picture: require('../../../assets/food.jpeg'),
+              picture: require(promoCardImage),
               content: (
                 <Button
                   buttonStyle={styles.button}

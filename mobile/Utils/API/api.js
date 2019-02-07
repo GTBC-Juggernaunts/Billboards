@@ -11,5 +11,8 @@ export default {
     },
     createUser: (user) => {
         return axios.post(`${server}api/user`, user);
+    },
+    getPromotionsByUser: function() {
+        return axios.post()
     }
 };
