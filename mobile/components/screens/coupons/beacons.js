@@ -42,6 +42,7 @@ export default class beacons extends Component {
     RNEP.locationPermission.request().then(permission => {
       // Check permission status
       if (permission !== RNEP.locationPermission.DENIED) {
+        // TODO: adjust estimote config accordingly 
         const ESTIMOTE_APP_ID = 'digital-billboard-app-026';
         const ESTIMOTE_APP_TOKEN = 'd6056fd23e22b958f7d478b2196e2c11';
         const credentials = new RNEP.CloudCredentials(
@@ -98,7 +99,7 @@ export default class beacons extends Component {
         console.log(`state onChange`);
         console.log(this.state);
         // array of beacon tags
-        if (this.state.beacon != undefined || this.state.beacon.length != 0) {
+        if (this.state.beacon != undefined || this.state.beacon.length !== 0) {
           const beaconTagArr = this.state.beacon.map(beacon => beacon.name);
           // retrieve matching promos from db
           // TODO: hard coded user here -- peter's user: 5c58e0a81fd72e002a0d8f43
@@ -137,18 +138,10 @@ export default class beacons extends Component {
         .then(res => {
           let promoCard = [];
           res.data.forEach(promo => {
-            // get correct promo card image
-            // TODO: implement function for dynamically generating promo card image
-            let promoCardImage = chooseCardImage(promo.PreferenceGroup);
-            console.log('preferenceGroup', promo.PreferenceGroup);
-            // const formatPromoCardImage = promoCardImage.toString();
-            console.log('typeOf', typeof promoCardImage);
-            console.log('promoCardImage', promoCardImage);
             promoCard.push({
               id: promo._id,
               title: promo.PromotionText,
               picture: require('../../../assets/food.jpeg'),
-              // picture: require(promoCardImage),
               content: (
                 <Button
                   buttonStyle={styles.button}
@@ -156,6 +149,7 @@ export default class beacons extends Component {
                   onPress={() =>
                     redeemPromo(
                       promo._id,
+                      // TODO: pass correct user id 
                       '5c58e0a81fd72e002a0d8f43',
                       promo.PromotionText,
                       beaconTag
@@ -173,19 +167,6 @@ export default class beacons extends Component {
         .catch(err => console.log('err getPromos', err));
     };
 
-    // choose stock promo card image
-    // TODO: figure out why this image switch case is not rendering correct image locally
-    chooseCardImage = category => {
-      switch (category) {
-        case 'footwear':
-          return '../../../assets/product.jpg';
-        case 'food':
-          return '../../../assets/food.jpeg';
-        // default:
-        //   return '../../../assets/goals.jpg';
-      }
-    };
-
     // method to handle the state management of triggered beacons
     triggeredBeaconHandler = (beaconName, array) => {
       // current time in milliseconds
@@ -201,13 +182,8 @@ export default class beacons extends Component {
       console.log('mapBeaconArr', mapBeaconArr);
 
       // handler for when this.state.beacon array is empty
-      if (array === undefined || array.length === 0) {
-        console.log('tempArr: undefined block BEFORE push method', tempArr);
+      if (array == undefined || array.length === 0) {
         tempArr.push({ name: beaconName, timestamp: currentTime });
-        console.log(
-          'tempArr: undefined block AFTER push method...return tempArr...API CALL',
-          tempArr
-        );
         return tempArr;
       } else if (!mapBeaconArr.includes(beaconName)) {
         // if triggered beacon doesn't exist in current state
@@ -221,11 +197,6 @@ export default class beacons extends Component {
         for (let i = 0; i < array.length; i++) {
           // time difference from current time and last time the beacon was triggered
           let timeDifference = currentTime - array[i].timestamp;
-          console.log(
-            `timeDifference: array.name:${
-              array[i].name
-            }, beaconName: ${beaconName} timeDifference${timeDifference}`
-          );
           // beacon has already been triggered & timestamp > 10 min
           if (array[i].name === beaconName && timeDifference > 600000) {
             tempArr = array.push({
