@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        backgroundColor: "white"
+        backgroundColor: "#717C89"
     },
     text: {
         width: 250,
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         width: 250,
         marginBottom: 20,
         justifyContent: 'center',
-        backgroundColor: 'red',
+        backgroundColor: '#7AA095',
     },
     buttonContainer: {
         position: "absolute",
