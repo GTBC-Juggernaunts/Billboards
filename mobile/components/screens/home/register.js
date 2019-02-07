@@ -24,7 +24,8 @@ class Home extends Component {
             if (res.status === 200) {
                 this.dropdown.alertWithType(
                     'success',
-                    'User Successfully Created'
+                    'User Successfully Created',
+                    'Please begin to look for promotions'
                 );
                 console.log(res);
                 console.log(res.data);

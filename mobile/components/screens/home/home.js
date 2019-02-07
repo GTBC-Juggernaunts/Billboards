@@ -14,7 +14,7 @@ class Home extends Component {
                 <Button
                     buttonStyle={ styles.button }
                     title={'Login'}
-                    onPress={() => this.props.navigation.navigate('Coupons')}
+                    onPress={() => this.props.navigation.navigate('Promotions')}
                 />
                 <Button
                     buttonStyle={ styles.button }

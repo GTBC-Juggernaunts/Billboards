@@ -134,7 +134,8 @@ export class CardList extends React.Component {
           ref={c => this._flatList = c}
           style={[{
             flex: 1,
-            backgroundColor: 'white'
+            backgroundColor: '#717C89',
+            boxShadow: '5px 5px grey'
           }, this.props.listStyle]}
           data={this.props.cards}
           showsVerticalScrollIndicator={ false }

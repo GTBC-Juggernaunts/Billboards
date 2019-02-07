@@ -38,12 +38,13 @@ export default class beacons extends Component {
 
   enterAction = () => {
     console.log('Starting a enterAction');
+    console.log('State', this.state);
 
     RNEP.locationPermission.request().then(permission => {
       // Check permission status
       if (permission !== RNEP.locationPermission.DENIED) {
-        const ESTIMOTE_APP_ID = 'digital-billboard-app-026';
-        const ESTIMOTE_APP_TOKEN = 'd6056fd23e22b958f7d478b2196e2c11';
+        const ESTIMOTE_APP_ID = 'billboards-o72';
+        const ESTIMOTE_APP_TOKEN = '563764b6a5ebe4d450cacda2f9438257';
         const credentials = new RNEP.CloudCredentials(
           ESTIMOTE_APP_ID,
           ESTIMOTE_APP_TOKEN
@@ -75,6 +76,7 @@ export default class beacons extends Component {
 
     // onChange event gives you granular data about which exact beacons are in range
     this.zone2.onChangeAction = contexts => {
+      console.log('Onchange State', this.state);
       console.log('zone2 onChange', contexts);
       // beacon array to setState
       let beaconArr = [];
@@ -102,7 +104,8 @@ export default class beacons extends Component {
           const beaconTagArr = this.state.beacon.map(beacon => beacon.name);
           // retrieve matching promos from db
           // TODO: hard coded user here -- peter's user: 5c58e0a81fd72e002a0d8f43
-          loadPromoCards('5c58e0a81fd72e002a0d8f43', beaconTagArr);
+          // TODO: hard coded user here -- Leebron's user: 5c5933aae536be002ac710d4
+          loadPromoCards('5c5933aae536be002ac710d4', beaconTagArr);
         }
       } else {
         // don't do anything since either a beacon most likely went out of range
@@ -147,7 +150,7 @@ export default class beacons extends Component {
             promoCard.push({
               id: promo._id,
               title: promo.PromotionText,
-              picture: require('../../../assets/food.jpeg'),
+              picture: require('../../../assets/card_image.jpg'),
               // picture: require(promoCardImage),
               content: (
                 <Button

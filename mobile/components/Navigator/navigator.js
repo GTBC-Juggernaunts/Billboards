@@ -65,7 +65,7 @@ const AppNavigator = createAppContainer(
     {
       swipeEnabled: false,
       tabBarOptions: {
-        activeTintColor: 'red'
+        activeTintColor: '#7AA095',
       }
     }
   )
