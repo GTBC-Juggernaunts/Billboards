@@ -98,10 +98,12 @@ export default class beacons extends Component {
         console.log(`state onChange`);
         console.log(this.state);
         // array of beacon tags
-        const beaconTagArr = this.state.beacon.map(beacon => beacon.name);
-        // retrieve matching promos from db
-        // TODO: hard coded user here -- peter's user: 5c58e0a81fd72e002a0d8f43
-        loadPromoCards('5c58e0a81fd72e002a0d8f43', beaconTagArr);
+        if (this.state.beacon != undefined || this.state.beacon.length != 0) {
+          const beaconTagArr = this.state.beacon.map(beacon => beacon.name);
+          // retrieve matching promos from db
+          // TODO: hard coded user here -- peter's user: 5c58e0a81fd72e002a0d8f43
+          loadPromoCards('5c58e0a81fd72e002a0d8f43', beaconTagArr);
+        }
       } else {
         // don't do anything since either a beacon most likely went out of range
         console.log(
@@ -112,7 +114,7 @@ export default class beacons extends Component {
     };
 
     // redeem promo button on cards
-    redeemPromo = (promoId, userId, promoDescription) => {
+    redeemPromo = (promoId, userId, promoDescription, beaconTag) => {
       const promotion = { PromotionId: promoId, UserId: userId };
       API.redeemPromotion(promotion)
         .then(res => {
@@ -122,6 +124,8 @@ export default class beacons extends Component {
             'Promotion Successfully Redeemed',
             `${promoDescription}`
           );
+          // re-render cards after redemption
+          loadPromoCards(userId, beaconTag);
         })
         .catch(err => console.log('err', err));
     };
@@ -153,7 +157,8 @@ export default class beacons extends Component {
                     redeemPromo(
                       promo._id,
                       '5c58e0a81fd72e002a0d8f43',
-                      promo.PromotionText
+                      promo.PromotionText,
+                      beaconTag
                     )
                   }
                 />
