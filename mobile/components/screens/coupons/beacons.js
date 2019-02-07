@@ -43,8 +43,8 @@ export default class beacons extends Component {
     RNEP.locationPermission.request().then(permission => {
       // Check permission status
       if (permission !== RNEP.locationPermission.DENIED) {
-        const ESTIMOTE_APP_ID = 'billboards-o72';
-        const ESTIMOTE_APP_TOKEN = '563764b6a5ebe4d450cacda2f9438257';
+        const ESTIMOTE_APP_ID = 'digital-billboard-app-026';
+        const ESTIMOTE_APP_TOKEN = 'd6056fd23e22b958f7d478b2196e2c11';
         const credentials = new RNEP.CloudCredentials(
           ESTIMOTE_APP_ID,
           ESTIMOTE_APP_TOKEN
@@ -105,7 +105,7 @@ export default class beacons extends Component {
           // retrieve matching promos from db
           // TODO: hard coded user here -- peter's user: 5c58e0a81fd72e002a0d8f43
           // TODO: hard coded user here -- Leebron's user: 5c5933aae536be002ac710d4
-          loadPromoCards('5c5933aae536be002ac710d4', beaconTagArr);
+          loadPromoCards('5c58e0a81fd72e002a0d8f43', beaconTagArr);
         }
       } else {
         // don't do anything since either a beacon most likely went out of range
