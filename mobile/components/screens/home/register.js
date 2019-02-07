@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { KeyboardAvoidingView } from 'react-native'
-import { Input, Text, Button } from 'react-native-elements'; 
+import { Input, Text, Button } from 'react-native-elements';
+import DropdownAlert from 'react-native-dropdownalert';
 import styles from '../../style'
 import api from '../../../Utils/API/api';
 
@@ -20,8 +21,15 @@ class Home extends Component {
         console.log(user);
         api.createUser(user)
         .then(res => {
-            console.log(res);
-            console.log(res.data);
+            if (res.status === 200) {
+                this.dropdown.alertWithType(
+                    'success',
+                    'User Successfully Created',
+                    'Please begin to look for promotions'
+                );
+                console.log(res);
+                console.log(res.data);
+            }
         })
         .catch(err => {
             console.log(`Error`, err);
@@ -58,6 +66,7 @@ class Home extends Component {
                         title="Register"
                         onPress={ this._handleSubmit }
                     />
+            <DropdownAlert ref={ref => (this.dropdown = ref)} />
             </KeyboardAvoidingView>
         )
     }

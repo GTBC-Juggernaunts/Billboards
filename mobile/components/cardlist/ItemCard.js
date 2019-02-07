@@ -127,8 +127,9 @@ export class ItemCard extends React.Component {
                 <TouchableWithoutFeedback onPress={this.props.onClose} >
                   <View style={{
                     position: 'absolute',
-                    top: 26,
-                    right: 26
+                    top: 15,
+                    right: 15,
+                    backgroundColor: 'white'
                   }}>
                     {this.props.closeIcon || <Text>X</Text>}
                   </View>  
@@ -157,7 +158,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: 'rgb(240, 240, 240)',    
     margin: 20,
-    padding: 0
+    padding: 0,
   },
   image: {
     width: undefined,
@@ -171,7 +172,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     color: 'white',
     fontWeight: '700',
-    fontSize: 44
+    fontSize: 44,
   }
 
 });
