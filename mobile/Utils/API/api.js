@@ -1,18 +1,18 @@
-import axios from 'axios'
+import axios from 'axios';
 
-const server = 'https://billboard-platform.herokuapp.com/'
+const server = 'https://billboard-platform.herokuapp.com/';
 
 export default {
-    getPromotions: function() {
-        return axios.get(server + 'api/promo');
-    },
-    redeemPromotion: function(promotion) {
-        return axios.post(`${server}api/promo/redeem`, promotion);
-    },
-    createUser: (user) => {
-        return axios.post(`${server}api/user`, user);
-    },
-    getPromotionsByUser: function() {
-        return axios.post()
-    }
+  getPromotions: () => {
+    return axios.get(`${server}api/promo`);
+  },
+  redeemPromotion: promotion => {
+    return axios.post(`${server}api/promo/redeem`, promotion);
+  },
+  createUser: user => {
+    return axios.post(`${server}api/user`, user);
+  },
+  getPromotionsByUser: promotion => {
+    return axios.post(`${server}api/promo/retrieve`, promotion);
+  }
 };

@@ -26,14 +26,6 @@ export default class beacons extends Component {
     this.focusListener = navigation.addListener('didFocus', () => {
       console.log('We are listening');
       this.enterAction();
-      // TODO: function to render promo cards
-      // 2 ways to get the promos tab
-      //    1- 'get started' button on home tab switches screens on press then creates proximity sensor
-      // if user is close to beacon it will render promos
-      // else it won't do anything
-      //    2- if user directly presses the coupons tab it will create the proximity senor
-      // if user is close to beacon it will render promos
-      // else it won't do anything
     });
   }
 
@@ -105,8 +97,11 @@ export default class beacons extends Component {
         this.setState({ beacon: beaconArr });
         console.log(`state onChange`);
         console.log(this.state);
+        // array of beacon tags
+        const beaconTagArr = this.state.beacon.map(beacon => beacon.name);
         // retrieve matching promos from db
-        loadPromoCards();
+        // TODO: hard coded user here -- peter's user: 5c58e0a81fd72e002a0d8f43
+        loadPromoCards('5c58e0a81fd72e002a0d8f43', beaconTagArr);
       } else {
         // don't do anything since either a beacon most likely went out of range
         console.log(
@@ -122,7 +117,6 @@ export default class beacons extends Component {
       API.redeemPromotion(promotion)
         .then(res => {
           console.log('redeemPromotion response', res);
-          // alert(`${promoDescription} Has Been Redeemed`);
           this.dropdown.alertWithType(
             'success',
             'Promotion Successfully Redeemed',
@@ -133,23 +127,24 @@ export default class beacons extends Component {
     };
 
     // load cards with promos
-    loadPromoCards = () => {
-      API.getPromotions()
+    loadPromoCards = (userId, beaconTag) => {
+      const promotion = { UserId: userId, BeaconTag: beaconTag };
+      API.getPromotionsByUser(promotion)
         .then(res => {
           let promoCard = [];
           res.data.forEach(promo => {
             // get correct promo card image
-            // TODO: implement function for dynamically generating promo card image            
+            // TODO: implement function for dynamically generating promo card image
             let promoCardImage = chooseCardImage(promo.PreferenceGroup);
-            console.log('preferenceGroup', promo.PreferenceGroup)
+            console.log('preferenceGroup', promo.PreferenceGroup);
             // const formatPromoCardImage = promoCardImage.toString();
-            console.log('typeOf', typeof promoCardImage)
+            console.log('typeOf', typeof promoCardImage);
             console.log('promoCardImage', promoCardImage);
             promoCard.push({
               id: promo._id,
               title: promo.PromotionText,
-              // picture: require('../../../assets/food.jpeg'),
-              picture: require(promoCardImage),
+              picture: require('../../../assets/food.jpeg'),
+              // picture: require(promoCardImage),
               content: (
                 <Button
                   buttonStyle={styles.button}
@@ -208,16 +203,13 @@ export default class beacons extends Component {
           'tempArr: undefined block AFTER push method...return tempArr...API CALL',
           tempArr
         );
-        // TODO: API call here because no beacons have been triggered yet
         return tempArr;
       } else if (!mapBeaconArr.includes(beaconName)) {
         // if triggered beacon doesn't exist in current state
-        console.log('include method', mapBeaconArr.includes(beaconName));
         // push the beacon into the array and return
         tempArr = array;
         tempArr.push({ name: beaconName, timestamp: currentTime });
         console.log('tempArr', tempArr);
-        // TODO: send request to server since beacon hasn't been triggered
         return tempArr;
       } else {
         // loop through beacons to see if they've been discovered within 10 minutes
@@ -231,22 +223,13 @@ export default class beacons extends Component {
           );
           // beacon has already been triggered & timestamp > 10 min
           if (array[i].name === beaconName && timeDifference > 600000) {
-            // TODO: send request to server to check for new promos since 10 minutes have passed
             tempArr = array.push({
               name: array[i].name,
               timestamp: currentTime
             });
-            console.log(
-              'beacon triggered more than 10 minutes ago: return tempArr...API CALL',
-              tempArr
-            );
             return tempArr;
           } else {
             // beacon has been triggered & timestamp < 10 min return this.state.beacon array
-            console.log(
-              'beacon has been triggered within 10 minutes: return array... NO API CALL',
-              array
-            );
             return array;
           }
         }
