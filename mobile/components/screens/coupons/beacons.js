@@ -10,6 +10,8 @@ import API from '../../../Utils/API/api';
 // Beacon library
 import * as RNEP from '@estimote/react-native-proximity';
 
+require('dotenv').config();
+
 export default class beacons extends Component {
   constructor(props) {
     super(props);
@@ -43,8 +45,8 @@ export default class beacons extends Component {
     RNEP.locationPermission.request().then(permission => {
       // Check permission status
       if (permission !== RNEP.locationPermission.DENIED) {
-        const ESTIMOTE_APP_ID = 'digital-billboard-app-026';
-        const ESTIMOTE_APP_TOKEN = 'd6056fd23e22b958f7d478b2196e2c11';
+        const ESTIMOTE_APP_ID = REACT_APP_ESTIMOTE_ACCOUNT;
+        const ESTIMOTE_APP_TOKEN = REACT_APP_ESTIMOTE_KEY;
         const credentials = new RNEP.CloudCredentials(
           ESTIMOTE_APP_ID,
           ESTIMOTE_APP_TOKEN
