@@ -145,7 +145,7 @@ export default class beacons extends Component {
             promoCard.push({
               id: promo._id,
               title: promo.PromotionText,
-              picture: require('../../../assets/card_image.jpg'),
+              picture: require('../../../assets/sale.png'),
               // picture: require(promoCardImage),
               content: (
                 <Button
