@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   },
   text: {
     backgroundColor: 'transparent',
-    color: 'white',
+    color: '#00695c',
     fontWeight: '700',
     fontSize: 44,
   }
